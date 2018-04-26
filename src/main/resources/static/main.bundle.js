@@ -175,7 +175,7 @@ AppModule = __decorate([
             {
                 provide: __WEBPACK_IMPORTED_MODULE_11__common_config_initial_config__["a" /* INITIAL_CONFIG */],
                 useValue: {
-                    apiURL: 'http://localhost:8080'
+                    apiURL: 'https://ecintercambios.herokuapp.com'
                 }
             },
             __WEBPACK_IMPORTED_MODULE_10__common_config_app_configuration_service__["a" /* AppConfiguration */],
