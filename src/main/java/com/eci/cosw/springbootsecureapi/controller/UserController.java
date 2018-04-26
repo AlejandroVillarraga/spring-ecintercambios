@@ -6,6 +6,8 @@ import com.eci.cosw.springbootsecureapi.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
@@ -36,39 +38,44 @@ public class UserController
         return userService.getUser(email);
     }
 
+    @CrossOrigin
     @RequestMapping( value = "/login", method = RequestMethod.POST )
-    public Token login( @RequestBody User login )
-        throws ServletException
-    {
+    public ResponseEntity<?> login(@RequestBody User login ) {
+
 
         String jwtToken = "";
 
         if ( login.getUsername() == null || login.getPassword() == null )
         {
-            throw new ServletException( "Please fill in username and password" );
+            return new ResponseEntity<>( "Please fill in username and password", HttpStatus.FORBIDDEN );
         }
 
         String username = login.getUsername();
         String password = login.getPassword();
 
-        User user = userService.getUser( username);
+        System.out.println(username+" "+password);
 
-        if ( user == null )
+        User user = userService.getUser(username);
+
+
+        if ( user != null )
         {
-            throw new ServletException( "User username not found." );
+            String pwdNur = user.getPassword();
+
+            if ( !password.equals( pwdNur ) )
+            {
+                System.out.println("clave mal 2");
+                return new ResponseEntity<>( "Invalid login. Please check your name and password.", HttpStatus.FORBIDDEN );
+            }
+            jwtToken = Jwts.builder().setSubject( username ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
+                    SignatureAlgorithm.HS256, "secretkey" ).compact();
+            System.out.println(jwtToken+" TOkern");
+            return new ResponseEntity<>( new Token (jwtToken) ,HttpStatus.ACCEPTED);
+
         }
 
-        String pwd = user.getPassword();
+        return new ResponseEntity<>("User username not found." ,HttpStatus.FORBIDDEN);
 
-        if ( !password.equals( pwd ) )
-        {
-            throw new ServletException( "Invalid login. Please check your name and password." );
-        }
-
-        jwtToken = Jwts.builder().setSubject( username ).claim( "roles", "user" ).setIssuedAt( new Date() ).signWith(
-            SignatureAlgorithm.HS256, "secretkey" ).compact();
-
-        return new Token( jwtToken );
     }
 
     public class Token
