@@ -44,6 +44,5 @@ jobs:
 deployment:
   staging:
     branch: master
-
     heroku:
       appname: ecintercambios
