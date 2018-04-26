@@ -175,7 +175,7 @@ AppModule = __decorate([
             {
                 provide: __WEBPACK_IMPORTED_MODULE_11__common_config_initial_config__["a" /* INITIAL_CONFIG */],
                 useValue: {
-                    apiURL: 'https://ecintercambios.herokuapp.com'
+                    apiURL: 'http://localhost:8080'
                 }
             },
             __WEBPACK_IMPORTED_MODULE_10__common_config_app_configuration_service__["a" /* AppConfiguration */],
@@ -674,7 +674,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/prestadores-page/prestadores-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let cl of objetosOfrecidosList\" class=\"col-xs-6 col-xs-3\">\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n\n            <div class=\"card\" style=\"width:1050px\">\n                <div class=\"row \">\n                    <div class=\"col-sm-4\">\n                        <div class=\"card-block px-3\">\n                            <img class=\"category\" src=\"/assets/generos/{{cl.user.genero}}.svg\" width=\"200px\" height=\"200px\">\n                            <h4 class=\"card-title\"><font size=\"6\">{{cl.user.email}}</font></h4>\n                            <img class=\"category\" src=\"/assets/estrellas/{{cl.user.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <br>\n                        <img class=\"category\" src=\"{{cl.objeto_ofrecido.image}}\" width=\"199px\" height=\"199px\">\n                        <p>{{cl.objeto_ofrecido.name}}</p>\n                        <p>{{cl.objeto_ofrecido.descripcion}}</p>\n                    </div>\n\n                    <div  class=\"col-sm-4\">\n                        <div *ngFor=\"let hd of cl.horariosDisponibles\" class=\"col-xs-6 col-xs-3\">\n                            <hr>\n                            <p>{{hd.dia}} {{hd.mes}} </p>\n                            <p>Desde: {{hd.hora_inicio}}</p>\n                            <p>Hasta: {{hd.hora_fin}}</p>\n                            <hr>\n                        </div>\n\n                    </div>\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n</div>"
+module.exports = "<div *ngFor=\"let cl of objetosOfrecidosList\" class=\"col-xs-6 col-xs-3\">\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n\n            <div class=\"card\" style=\"width:1050px\">\n                <div class=\"row \">\n                    <div class=\"col-sm-4\">\n                        <div class=\"card-block px-3\">\n                            <img class=\"category\" src=\"/assets/generos/{{cl.user.genero}}.svg\" width=\"200px\" height=\"200px\">\n                            <h4 class=\"card-title\"><font size=\"6\">{{cl.user.email}}</font></h4>\n                            <img class=\"category\" src=\"/assets/estrellas/{{cl.user.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <br>\n                        <img class=\"category\" src=\"{{cl.objeto_ofrecido.image}}\" width=\"199px\" height=\"199px\">\n                        <p>{{cl.objeto_ofrecido.name}}</p>\n                        <p>{{cl.objeto_ofrecido.descripcion}}</p>\n                    </div>\n\n                    <div  class=\"col-sm-4\">\n                        <div *ngFor=\"let hd of cl.horariosDisponibles\" class=\"col-xs-6 col-xs-3\">\n                            <hr>\n                            <p>{{hd.dia}} {{hd.mes}} </p>\n                            <p>Desde: {{hd.hora_inicio}}</p>\n                            <p>Hasta: {{hd.hora_fin}}</p>\n                            <hr>\n                        </div>\n\n                    </div>\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n</div>\n<font size=\"3\" color=\"red\">{{errorText}}</font>"
 
 /***/ }),
 
@@ -707,6 +707,12 @@ var PrestadoresPageComponent = (function () {
         var data = sessionStorage.getItem("categoryName");
         this.ObjetoOfrecidoService.getObjetosOfrecidosByName(data).subscribe(function (objetoResponse) {
             _this.objetosOfrecidosList = objetoResponse;
+            if (_this.objetosOfrecidosList.length == 0) {
+                _this.errorText = "Lo sentimos !!!! No se ha registrado ningin " + data + ".";
+            }
+            else {
+                _this.errorText = "";
+            }
         });
     };
     return PrestadoresPageComponent;
