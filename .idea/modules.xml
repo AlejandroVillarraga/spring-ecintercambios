@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring.iml" filepath="$PROJECT_DIR$/.idea/modules/spring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring_main.iml" group="spring" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring_test.iml" group="spring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios_main.iml" group="spring-ecintercambios" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios_test.iml" group="spring-ecintercambios" />
     </modules>
   </component>
 </project>

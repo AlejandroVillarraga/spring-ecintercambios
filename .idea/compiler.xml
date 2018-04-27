@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="spring-boot-secure-api_main" target="1.8" />
       <module name="spring-boot-secure-api_test" target="1.8" />
+      <module name="spring-ecintercambios_main" target="1.8" />
+      <module name="spring-ecintercambios_test" target="1.8" />
       <module name="spring_main" target="1.8" />
       <module name="spring_test" target="1.8" />
     </bytecodeTargetLevel>

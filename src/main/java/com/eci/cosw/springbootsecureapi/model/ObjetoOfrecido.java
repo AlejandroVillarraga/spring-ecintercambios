@@ -16,16 +16,27 @@ public class ObjetoOfrecido {
     User user;
     Objeto objeto_ofrecido;
     String descripcion;
+    int precio;
 
 
-    public ObjetoOfrecido(List<HorariosDisponibles> horariosDisponibles, User user, Objeto objeto_ofrecido, String descripcion) {
+    public ObjetoOfrecido(List<HorariosDisponibles> horariosDisponibles, User user, Objeto objeto_ofrecido, String descripcion, int precio) {
         this.horariosDisponibles = horariosDisponibles;
         this.user = user;
         this.objeto_ofrecido = objeto_ofrecido;
         this.descripcion=descripcion;
+        this.precio=precio;
     }
 
     public ObjetoOfrecido() {
+    }
+
+    @Column(name = "precio", nullable = false)
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     @Column(name = "descripcion", nullable = false)

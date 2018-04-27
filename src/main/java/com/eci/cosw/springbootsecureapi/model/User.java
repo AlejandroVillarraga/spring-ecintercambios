@@ -33,6 +33,10 @@ public class User
 
     private List<ObjetoOfrecido> objetoOfrecidoList;
 
+    private int celular;
+
+    private int numeroDeOpiniones;
+
     @Autowired
     CalificacionRepository calirepo;
 
@@ -41,7 +45,7 @@ public class User
     {
     }
 
-    public User(String email, String password, String firstname, String lastname, String username, List<ObjetoOfrecido> objetoOfrecidoList, String genero) {
+    public User(String email, String password, String firstname, String lastname, String username, List<ObjetoOfrecido> objetoOfrecidoList, String genero, int celular, int numeroDeOpiniones) {
         this.email = email;
         this.password = password;
         this.firstname = firstname;
@@ -49,6 +53,26 @@ public class User
         this.username = username;
         this.objetoOfrecidoList = objetoOfrecidoList;
         this.genero=genero;
+        this.celular=celular;
+        this.numeroDeOpiniones=numeroDeOpiniones;
+    }
+
+    @Column(name = "numero_opiniones", nullable = false)
+    public int getNumeroDeOpiniones() {
+        return numeroDeOpiniones;
+    }
+
+    public void setNumeroDeOpiniones(int numeroDeOpiniones) {
+        this.numeroDeOpiniones = numeroDeOpiniones;
+    }
+
+    @Column(name = "celular", nullable = false)
+    public int getCelular() {
+        return celular;
+    }
+
+    public void setCelular(int celular) {
+        this.celular = celular;
     }
 
     @Column(name = "genero", nullable = false)

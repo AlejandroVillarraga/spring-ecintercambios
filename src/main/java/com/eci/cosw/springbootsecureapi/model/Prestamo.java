@@ -15,6 +15,7 @@ public class Prestamo {
     ObjetoOfrecido objetoOfrecido;
     HorariosDisponibles horariosDisponibles;
 
+
     public Prestamo(User prestador, User solicitante, Boolean aceptado, ObjetoOfrecido objetoOfrecido, HorariosDisponibles horariosDisponibles) {
         this.prestador = prestador;
         this.solicitante = solicitante;
@@ -25,6 +26,8 @@ public class Prestamo {
 
     public Prestamo() {
     }
+
+
 
     @Id
     @GeneratedValue
