@@ -31,7 +31,9 @@ public class UserServicePersistence implements UserService {
 
     @Override
     public User createUser(User user) {
-        return null;
+        userRepository.save(user);
+        System.out.println(user.getName());
+        return user;
     }
 
     @Override

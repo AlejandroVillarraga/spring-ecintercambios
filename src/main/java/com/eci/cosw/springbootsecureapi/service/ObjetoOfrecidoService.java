@@ -9,6 +9,8 @@ public interface ObjetoOfrecidoService {
 
     List<ObjetoOfrecido> getAllObjetos();
 
+    List<ObjetoOfrecido> getObjetoByNameLogueado(String name, String currentUser);
+
     List<ObjetoOfrecido> getObjetoByName(String name);
 
 }

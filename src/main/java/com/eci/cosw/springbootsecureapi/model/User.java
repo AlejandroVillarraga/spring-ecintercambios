@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -23,9 +24,7 @@ public class User
 
     private String password;
 
-    private String firstname;
-
-    private String lastname;
+    private String name;
 
     private String username;
 
@@ -33,7 +32,7 @@ public class User
 
     private List<ObjetoOfrecido> objetoOfrecidoList;
 
-    private int celular;
+    private BigInteger celular;
 
     private int numeroDeOpiniones;
 
@@ -45,16 +44,26 @@ public class User
     {
     }
 
-    public User(String email, String password, String firstname, String lastname, String username, List<ObjetoOfrecido> objetoOfrecidoList, String genero, int celular, int numeroDeOpiniones) {
+    public User(String email, String password, String name , String username, List<ObjetoOfrecido> objetoOfrecidoList,
+                String genero, BigInteger celular, int numeroDeOpiniones) {
         this.email = email;
         this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.name = name;
         this.username = username;
         this.objetoOfrecidoList = objetoOfrecidoList;
         this.genero=genero;
         this.celular=celular;
         this.numeroDeOpiniones=numeroDeOpiniones;
+    }
+
+    public User(String email, String password, String name , String username,
+                String genero, BigInteger celular) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.username = username;
+        this.genero=genero;
+        this.celular=celular;
     }
 
     @Column(name = "numero_opiniones", nullable = false)
@@ -67,11 +76,11 @@ public class User
     }
 
     @Column(name = "celular", nullable = false)
-    public int getCelular() {
+    public BigInteger getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(BigInteger celular) {
         this.celular = celular;
     }
 
@@ -126,26 +135,15 @@ public class User
         this.password = password;
     }
 
-    @Column(name = "firstname", nullable = false)
-    public String getFirstname()
+    @Column(name = "name", nullable = false)
+    public String getName()
     {
-        return firstname;
+        return name;
     }
 
-    public void setFirstname( String firstname )
+    public void setName( String name )
     {
-        this.firstname = firstname;
-    }
-
-    @Column(name = "lastname", nullable = false)
-    public String getLastname()
-    {
-        return lastname;
-    }
-
-    public void setLastname( String lastname )
-    {
-        this.lastname = lastname;
+        this.name = name;
     }
 
     @Column(name = "username", nullable = false)

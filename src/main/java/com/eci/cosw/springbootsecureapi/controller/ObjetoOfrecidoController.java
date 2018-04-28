@@ -23,8 +23,14 @@ public class ObjetoOfrecidoController {
     }
 
     @CrossOrigin
+    @RequestMapping( value = "/byNameLogeado/{name}/{currentUser}", method = RequestMethod.GET )
+    public List<ObjetoOfrecido> getObjetoByName(@PathVariable String name, @PathVariable String currentUser) {
+        return objetoOfrecidoService.getObjetoByNameLogueado(name, currentUser);
+    }
+
+    @CrossOrigin
     @RequestMapping( value = "/byName/{name}", method = RequestMethod.GET )
-    public List<ObjetoOfrecido> getObjetoByName(@PathVariable String name) {
+    public List<ObjetoOfrecido> getObjetoByNameNoLogeado(@PathVariable String name) {
         return objetoOfrecidoService.getObjetoByName(name);
     }
 

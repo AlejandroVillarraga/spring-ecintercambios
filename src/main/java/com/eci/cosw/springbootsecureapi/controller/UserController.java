@@ -39,6 +39,12 @@ public class UserController
     }
 
     @CrossOrigin
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public ResponseEntity<?> newUser(@RequestBody User user) {
+        return new ResponseEntity<>(userService.createUser(user), HttpStatus.ACCEPTED);
+    }
+
+    @CrossOrigin
     @RequestMapping( value = "/login", method = RequestMethod.POST )
     public ResponseEntity<?> login(@RequestBody User login ) {
 

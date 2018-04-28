@@ -20,6 +20,11 @@ public class ObjetoOfrecidoServicePersistence implements ObjetoOfrecidoService {
     }
 
     @Override
+    public List<ObjetoOfrecido> getObjetoByNameLogueado(String name, String currentUser) {
+        return obofrerepo.getObjetoByNameLogueado(name, currentUser);
+    }
+
+    @Override
     public List<ObjetoOfrecido> getObjetoByName(String name) {
         return obofrerepo.getObjetoOfrecidoByName(name);
     }
