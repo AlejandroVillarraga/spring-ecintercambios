@@ -8,29 +8,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.0.2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.0.2/taskHistory/fileSnapshots.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0.2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.0.2/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.0.2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.0.2/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/spring.iml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/controller/ObjetoOfrecidoController.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/controller/ObjetoOfrecidoController.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/controller/UserController$Token.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/controller/UserController$Token.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/controller/UserController.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/controller/UserController.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/model/User.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/model/User.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/repositories/ObjetoOfrecidoRepository.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/repositories/ObjetoOfrecidoRepository.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoService.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoService.class" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoServicePersistence.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoServicePersistence.class" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/service/UserServicePersistence.class" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eci/cosw/springbootsecureapi/service/UserServicePersistence.class" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/inline.bundle.js.map" afterPath="$PROJECT_DIR$/build/resources/main/static/inline.bundle.js.map" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/main.bundle.js" afterPath="$PROJECT_DIR$/build/resources/main/static/main.bundle.js" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/main.bundle.js.map" afterPath="$PROJECT_DIR$/build/resources/main/static/main.bundle.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/controller/ObjetoOfrecidoController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/controller/ObjetoOfrecidoController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/controller/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/model/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/repositories/ObjetoOfrecidoRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/repositories/ObjetoOfrecidoRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoService.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoServicePersistence.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/service/ObjetoOfrecidoServicePersistence.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/service/UserServicePersistence.java" afterPath="$PROJECT_DIR$/src/main/java/com/eci/cosw/springbootsecureapi/service/UserServicePersistence.java" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/polyfills.bundle.js.map" afterPath="$PROJECT_DIR$/build/resources/main/static/polyfills.bundle.js.map" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/styles.bundle.js" afterPath="$PROJECT_DIR$/build/resources/main/static/styles.bundle.js" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/styles.bundle.js.map" afterPath="$PROJECT_DIR$/build/resources/main/static/styles.bundle.js.map" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/vendor.bundle.js.map" afterPath="$PROJECT_DIR$/build/resources/main/static/vendor.bundle.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/inline.bundle.js.map" afterPath="$PROJECT_DIR$/src/main/resources/static/inline.bundle.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.bundle.js" afterPath="$PROJECT_DIR$/src/main/resources/static/main.bundle.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main.bundle.js.map" afterPath="$PROJECT_DIR$/src/main/resources/static/main.bundle.js.map" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
