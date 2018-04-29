@@ -17,4 +17,9 @@ public class ObjetoServicePersistence implements ObjetoService {
     public List<Objeto> getAllObjetos() {
         return objrepo.findAll();
     }
+
+    @Override
+    public Objeto getObjetoByName(String name) {
+        return objrepo.findOne(name);
+    }
 }

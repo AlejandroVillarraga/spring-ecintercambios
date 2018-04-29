@@ -1,5 +1,6 @@
 package com.eci.cosw.springbootsecureapi.controller;
 
+import com.eci.cosw.springbootsecureapi.model.Objeto;
 import com.eci.cosw.springbootsecureapi.model.ObjetoOfrecido;
 import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.service.UserService;
@@ -42,6 +43,12 @@ public class UserController
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ResponseEntity<?> newUser(@RequestBody User user) {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.ACCEPTED);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/addObjetoOfrecido/{email}", method = RequestMethod.POST)
+    public ResponseEntity<?> addObjetoOfrecido(@PathVariable String email, @RequestBody ObjetoOfrecido obof) {
+        return new ResponseEntity<>(userService.addObjetoOfrecido(obof, email), HttpStatus.ACCEPTED);
     }
 
     @CrossOrigin

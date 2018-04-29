@@ -152,6 +152,7 @@ var ROUTES = [
     { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_17__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */] },
     { path: 'objetos', component: __WEBPACK_IMPORTED_MODULE_7__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
+    { path: 'error', component: __WEBPACK_IMPORTED_MODULE_7__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
     { path: 'prestadores', component: __WEBPACK_IMPORTED_MODULE_8__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_18__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
     { path: 'solicitud', component: __WEBPACK_IMPORTED_MODULE_6__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */] },
@@ -185,7 +186,7 @@ AppModule = __decorate([
             {
                 provide: __WEBPACK_IMPORTED_MODULE_12__common_config_initial_config__["a" /* INITIAL_CONFIG */],
                 useValue: {
-                    apiUrl: 'https://ecintercambios.herokuapp.com'
+                    apiURL: 'https://ecintercambios.herokuapp.com'
                 }
             },
             __WEBPACK_IMPORTED_MODULE_11__common_config_app_configuration_service__["a" /* AppConfiguration */],

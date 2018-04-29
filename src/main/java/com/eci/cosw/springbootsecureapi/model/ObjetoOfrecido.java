@@ -27,6 +27,21 @@ public class ObjetoOfrecido {
         this.precio=precio;
     }
 
+    public ObjetoOfrecido(long id, User user, Objeto objeto_ofrecido, String descripcion, int precio) {
+        this.id = id;
+        this.user = user;
+        this.objeto_ofrecido = objeto_ofrecido;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+
+    public ObjetoOfrecido(User user, Objeto objeto_ofrecido, String descripcion, int precio) {
+        this.user = user;
+        this.objeto_ofrecido = objeto_ofrecido;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+
     public ObjetoOfrecido() {
     }
 
@@ -58,7 +73,7 @@ public class ObjetoOfrecido {
         this.id = id;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="objeto", referencedColumnName="name", nullable=true)
     public Objeto getObjeto_ofrecido() {
         return objeto_ofrecido;
@@ -78,7 +93,7 @@ public class ObjetoOfrecido {
         this.horariosDisponibles = horariosDisponibles;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="user", referencedColumnName="email", nullable=true)
     public User getUser() {
         return user;

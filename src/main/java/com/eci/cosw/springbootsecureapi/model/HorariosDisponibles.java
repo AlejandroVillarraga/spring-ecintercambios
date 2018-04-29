@@ -12,17 +12,21 @@ public class HorariosDisponibles {
 
     long id;
     String dia;
-    String mes;
     String hora_inicio;
     String hora_fin;
     ObjetoOfrecido objetoOfrecido;
 
-    public HorariosDisponibles(String dia, String mes, String hora_inicio, String hora_fin, ObjetoOfrecido objetoOfrecido) {
+    public HorariosDisponibles(String dia, String hora_inicio, String hora_fin, ObjetoOfrecido objetoOfrecido) {
         this.dia = dia;
-        this.mes = mes;
         this.hora_inicio = hora_inicio;
         this.hora_fin = hora_fin;
         this.objetoOfrecido = objetoOfrecido;
+    }
+
+    public HorariosDisponibles(String dia, String hora_inicio, String hora_fin) {
+        this.dia = dia;
+        this.hora_inicio = hora_inicio;
+        this.hora_fin = hora_fin;
     }
 
     public HorariosDisponibles() {
@@ -76,12 +80,4 @@ public class HorariosDisponibles {
         this.hora_fin = hora_fin;
     }
 
-    @Column(name = "mes", nullable = false)
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
-    }
 }

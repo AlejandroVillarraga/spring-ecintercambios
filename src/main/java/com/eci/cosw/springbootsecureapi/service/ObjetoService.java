@@ -7,4 +7,6 @@ import java.util.List;
 public interface ObjetoService {
 
     List<Objeto> getAllObjetos();
+
+    Objeto getObjetoByName(String name);
 }

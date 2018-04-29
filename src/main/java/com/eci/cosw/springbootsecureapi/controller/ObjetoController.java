@@ -2,13 +2,13 @@ package com.eci.cosw.springbootsecureapi.controller;
 
 import com.eci.cosw.springbootsecureapi.model.Objeto;
 import com.eci.cosw.springbootsecureapi.model.ObjetoOfrecido;
+import com.eci.cosw.springbootsecureapi.model.User;
 import com.eci.cosw.springbootsecureapi.service.ObjetoOfrecidoService;
 import com.eci.cosw.springbootsecureapi.service.ObjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +24,15 @@ public class ObjetoController {
     public List<Objeto> getObjetos() {
         return objetoService.getAllObjetos();
     }
+
+    @CrossOrigin
+    @RequestMapping( value = "/{name}", method = RequestMethod.GET )
+    public Objeto getObjetoByName(@PathVariable String name) {
+        return objetoService.getObjetoByName(name);
+    }
+
+
+
 
 
 

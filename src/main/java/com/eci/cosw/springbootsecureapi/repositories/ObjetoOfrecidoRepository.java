@@ -16,6 +16,9 @@ public interface ObjetoOfrecidoRepository extends JpaRepository<ObjetoOfrecido, 
     @Query("SELECT o from ObjetoOfrecido o where o.objeto_ofrecido.name=?1 ORDER BY o.user.calificacion DESC")
     public List<ObjetoOfrecido> getObjetoOfrecidoByName(String name);
 
+    @Query("SELECT o from ObjetoOfrecido o ORDER BY o.id DESC")
+    public List<ObjetoOfrecido> getLastObjetoOfrecido();
+
 
 
 
