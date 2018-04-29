@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".navbar {\n    background-image: url(\"/assets/fondonavbar.jpg\");\n    box-shadow: 10px 10px 30px #999;\n}\n\n\n.styleA{\n    background-color:rgba(0, 0, 0, 0.5);\n    color: white;\n    padding: 8px 15px;\n    text-aling: center;\n    text-decoration: none;\n    display: inline-block; /* Safari */\n    transition-duration: 0.9s;\n        cursor: pointer;\n\n}\n\n.styleA:hover {\n    background-color: white;\n    color: #0e6ebe;\n}", ""]);
+exports.push([module.i, ".navbar {\n    background-image: url(\"/assets/fondonavbar.jpg\");\n    box-shadow: 10px 10px 30px #999;\n}\n\n\n.styleA{\n    background-color:rgba(0, 0, 0, 0.5);\n    color: white;\n    padding: 8px 15px;\n    text-aling: center;\n    text-decoration: none;\n    display: inline-block; /* Safari */\n    transition-duration: 0.9s;\n        cursor: pointer;\n\n}\n\n.navbar-brand{\n    background-color:rgba(0, 0, 0, 0.5);\n    color: white;\n    padding: 8px 15px;\n    text-aling: center;\n    text-decoration: none;\n    display: inline-block; /* Safari */\n    transition-duration: 0.9s;\n        cursor: pointer;\n}\n\n.styleA:hover {\n    background-color: white;\n    color: #0e6ebe;\n}\n\n.navbar-brand:hover{\n    background-color: white;\n    color: #0e6ebe;\n}", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n  <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">ECIntercambios</a>\n    &nbsp;\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">Categorias</a>\n      </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/prestarObjeto\" routerLink=\"/prestarObjeto\"  class=\"nav-link\" class=\"styleA\" >Ofrecer Objeto</a>\n        </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/prestarObjeto\" routerLink=\"/prestarObjeto\"  class=\"nav-link\" class=\"styleA\" >Solicitudes</a>\n        </li>\n        &nbsp;\n    </ul>\n    <ul class=\"navbar-nav lr-auto\">\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signin\" routerLink=\"/signin\"  class=\"styleA\" >Ingresa</a>\n      </li>\n        &nbsp;\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signup\" routerLink=\"/signup\"  class=\"styleA\" >Registrate</a>\n      </li>\n        &nbsp;\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/objetos\" routerLink=\"/objetos\"  class=\"nav-link\" (click)=\"signOut()\" class=\"styleA\" >Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n</button>\n\n  <a  class=\"navbar-brand\" href=\"/home\">\n    <img src=\"/assets/brand/logo.svg\" width=\"28\" height=\"28\">\n    ECIntercambios\n  </a>\n\n    &nbsp;\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">Categorias</a>\n      </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/ofrecerObjeto\" routerLink=\"/ofrecerObjeto\"  class=\"nav-link\" class=\"styleA\" >Ofrecer Objeto</a>\n        </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/prestarObjeto\" routerLink=\"/prestarObjeto\"  class=\"nav-link\" class=\"styleA\" >Solicitudes</a>\n        </li>\n        &nbsp;\n    </ul>\n    <ul class=\"navbar-nav lr-auto\">\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signin\" routerLink=\"/signin\"  class=\"styleA\" >Ingresa</a>\n      </li>\n        &nbsp;\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signup\" routerLink=\"/signup\"  class=\"styleA\" >Registrate</a>\n      </li>\n        &nbsp;\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/objetos\" routerLink=\"/objetos\"  class=\"nav-link\" (click)=\"signOut()\" class=\"styleA\" >Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -67,7 +67,8 @@ var AppComponent = (function () {
         if (!this.authService.isLoggedIn()) {
             this.router.navigate(['/objetos']);
         }
-        sessionStorage.setItem("currentUser", "-1");
+        //sessionStorage.setItem("currentUser", "-1");
+        //this.signOut();
     }
     AppComponent.prototype.isLoggedIn = function () {
         return this.authService.isLoggedIn();
@@ -103,28 +104,30 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__ = __webpack_require__("../../../../../src/app/pages/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_solicitud_page_solicitud_page_component__ = __webpack_require__("../../../../../src/app/pages/solicitud-page/solicitud-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_objetos_page_objetos_page_component__ = __webpack_require__("../../../../../src/app/pages/objetos-page/objetos-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_prestadores_page_prestadores_page_component__ = __webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/pages/page-not-found/page-not-found.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_config_initial_config__ = __webpack_require__("../../../../../src/app/common/config/initial-config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__common_app_data_service__ = __webpack_require__("../../../../../src/app/common/app-data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_sign_in_sign_in_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sign_up_sign_up_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-up/sign-up-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__ = __webpack_require__("../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__ = __webpack_require__("../../../../../src/app/pages/solicitud-page/solicitud-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__ = __webpack_require__("../../../../../src/app/pages/objetos-page/objetos-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__ = __webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/pages/page-not-found/page-not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_config_initial_config__ = __webpack_require__("../../../../../src/app/common/config/initial-config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_app_data_service__ = __webpack_require__("../../../../../src/app/common/app-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sign_in_sign_in_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_sign_up_sign_up_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-up/sign-up-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -149,14 +152,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var ROUTES = [
-    { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_17__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
+    { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_18__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */] },
-    { path: 'objetos', component: __WEBPACK_IMPORTED_MODULE_7__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
-    { path: 'error', component: __WEBPACK_IMPORTED_MODULE_7__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
-    { path: 'prestadores', component: __WEBPACK_IMPORTED_MODULE_8__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_18__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
-    { path: 'solicitud', component: __WEBPACK_IMPORTED_MODULE_6__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */] },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_9__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
+    { path: 'objetos', component: __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
+    { path: 'prestadores', component: __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */] },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_19__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
+    { path: 'ofrecerObjeto', component: __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */] },
+    { path: 'solicitud', component: __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */] },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -168,34 +171,35 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */]
+            __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_13__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_14__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_10__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(ROUTES),
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* ReactiveFormsModule */]
         ],
         providers: [
             {
-                provide: __WEBPACK_IMPORTED_MODULE_12__common_config_initial_config__["a" /* INITIAL_CONFIG */],
+                provide: __WEBPACK_IMPORTED_MODULE_13__common_config_initial_config__["a" /* INITIAL_CONFIG */],
                 useValue: {
                     apiURL: 'https://ecintercambios.herokuapp.com'
                 }
             },
-            __WEBPACK_IMPORTED_MODULE_11__common_config_app_configuration_service__["a" /* AppConfiguration */],
-            __WEBPACK_IMPORTED_MODULE_14__common_api_service__["a" /* APIService */],
-            __WEBPACK_IMPORTED_MODULE_15__common_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_16__common_app_data_service__["a" /* AppDataService */],
-            __WEBPACK_IMPORTED_MODULE_19__services_users_service__["a" /* UsersService */],
-            __WEBPACK_IMPORTED_MODULE_20__services_objeto_service__["a" /* ObjetoService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */]
+            __WEBPACK_IMPORTED_MODULE_12__common_config_app_configuration_service__["a" /* AppConfiguration */],
+            __WEBPACK_IMPORTED_MODULE_15__common_api_service__["a" /* APIService */],
+            __WEBPACK_IMPORTED_MODULE_16__common_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_17__common_app_data_service__["a" /* AppDataService */],
+            __WEBPACK_IMPORTED_MODULE_20__services_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_21__services_objeto_service__["a" /* ObjetoService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
@@ -468,6 +472,43 @@ var INITIAL_CONFIG = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Inje
 
 /***/ }),
 
+/***/ "../../../../../src/app/models/horariosDisponibles.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HorariosDisponibles; });
+var HorariosDisponibles = (function () {
+    function HorariosDisponibles(dia, hora_inicio, hora_fin) {
+        this.dia = dia;
+        this.hora_inicio = hora_inicio;
+        this.hora_fin = hora_fin;
+    }
+    return HorariosDisponibles;
+}());
+
+//# sourceMappingURL=horariosDisponibles.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/objetoOfrecido.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ObjetoOfrecido; });
+var ObjetoOfrecido = (function () {
+    function ObjetoOfrecido(user, objeto_ofrecido, descripcion, precio) {
+        this.user = user;
+        this.objeto_ofrecido = objeto_ofrecido;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+    return ObjetoOfrecido;
+}());
+
+//# sourceMappingURL=objetoOfrecido.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/models/user.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -621,6 +662,152 @@ ObjetosPageComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=objetos-page.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container{\n    position: relative;\n    width: 650px;\n    -ms-flex-line-pack: center;\n        align-content: center;\n    background-color: transparent;\n  }\n\n\n.btn {\n        background: white;\n        width: 100px;\n        height: 40px;\n    color: white;\n    padding: 5px 5px;\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    margin: 4px 2px; /* Safari */\n    transition-duration: 0.4s;\n    cursor: pointer;\n        background-color: white;\n        color: black;\n        border: 2px solid #cf7b04;\n}\n\n.btn:hover {\n    background-color: #cf7b04;\n    color: white;\n}\n\n\n.card {\n    /* Add shadows to create the \"card\" effect */\n    width: 800px;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\n    transition: 0.3s;\n    padding: 10px 10px 10px 10px;\n}\n\n/* On mouse-over, add a deeper shadow */\n.card:hover {\n    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\n}\n\n/* Add some padding inside the card container */\n.card-body {\n    padding: 10px 10px 10px 10px;\n}\n\n.inpCorto{\n    width: 300px;\n}\n\n.row{\npadding: 3px 10px 10px 15px;\n}\n\nselect{\n        width: 150px;\n        height: 40px;\n    padding: 10px 10px 10px 10px;\n}\n\n\n.dropdown {\n    position: center;\n    display: inline-block;\n}\n\n.dropdown-content {\n    display: none;\n    position: absolute;\n    background-color: white;\n    min-width: 150px;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    padding: 5px;\n    z-index: 1;\n}\n\n.dropdown:hover .dropdown-content {\n    display: block;\n      cursor: pointer;\n}\n\n.styleA{\n    background-color: #0e6ebe;\n    color: white;\n    padding: 8px 15px;\n    text-aling: center;\n    text-decoration: none;\n    display: inline-block; /* Safari */\n    transition-duration: 0.9s;\n        cursor: pointer;\n\n}\n\n.styleA:hover {\n    background-color: white;\n    color: #0e6ebe;\n}\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <br>\n\n\n    <div class=\"card\" >\n        <h2>Registrate</h2>\n        <br>\n        <p>Selecciona un objeto para prestar:</p>\n        <div class=\"dropdown\">\n            <span class=\"styleA\">Objeto: {{objeto}}</span>\n            <div class=\"dropdown-content\">\n                <a class=\"nav-link\"  (click)=\"saveObjeto(ob.name)\" *ngFor=\"let ob of objetoList\">{{ob.name}}</a>\n            </div>\n        </div>\n        <br>\n\n        <form [formGroup]=\"signUpForm\" (ngSubmit)=\"ofrecerObjeto()\" novalidate>\n\n            <div class=\"form-group\">\n                <label for=\"descripcion\">Descripción</label>\n                <input type=\"text\" class=\"form-control\" id=\"descripcion\" formControlName=\"descripcion\" required>\n            </div>\n\n            <div class=\"form-group\" >\n                <label for=\"precio\">Precio</label>\n                <div class=\"row\" align=\"center\">\n                    <input type=\"text\" class=\"form-control inpCorto\" id=\"precio\" formControlName=\"precio\" required><font size=\"5\">COP</font>\n                </div>\n            </div>\n            <h2>Horarios</h2>\n            <hr>\n            <div class=\"row\" align=\"center\">\n                <h5>1er horario: </h5>&nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Dia: {{dia1}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveDia('Lunes')\" >Lunes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia('Martes')\" >Martes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia('Miercoles')\" >Miercoles</a>\n                        <a class=\"nav-link\" (click)=\"saveDia('Jueves')\" >Jueves</a>\n                        <a class=\"nav-link\" (click)=\"saveDia('Viernes')\" >Viernes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia('Sabado')\" >Sabado</a>\n                    </div>\n                </div>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Desde: {{hora_inicio1}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('07:00')\" >07:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('08:30')\" >08:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('10:00')\" >10:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('11:30')\" >11:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('01:00')\" >01:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('02:30')\" >02:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('04:00')\" >04:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio('05:30')\" >05:30</a>\n                    </div>\n                </div>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Hasta: {{hora_fin1}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('08:30')\" >08:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('10:00')\" >10:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('11:30')\" >11:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('01:00')\" >01:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('02:30')\" >02:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('04:00')\" >04:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('05:30')\" >05:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin('07:00')\" >07:00</a>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"row\" align=\"center\">\n                <h5>2do horario: </h5>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Dia: {{dia2}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveDia2('Lunes')\" >Lunes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia2('Martes')\" >Martes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia2('Miercoles')\" >Miercoles</a>\n                        <a class=\"nav-link\" (click)=\"saveDia2('Jueves')\" >Jueves</a>\n                        <a class=\"nav-link\" (click)=\"saveDia2('Viernes')\" >Viernes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia2('Sabado')\" >Sabado</a>\n                    </div>\n                </div>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Desde: {{hora_inicio2}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('07:00')\" >07:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('08:30')\" >08:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('10:00')\" >10:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('11:30')\" >11:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('01:00')\" >01:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('02:30')\" >02:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('04:00')\" >04:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio2('05:30')\" >05:30</a>\n                    </div>\n                </div>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Hasta: {{hora_fin2}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('08:30')\" >08:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('10:00')\" >10:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('11:30')\" >11:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('01:00')\" >01:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('02:30')\" >02:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('04:00')\" >04:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('05:30')\" >05:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin2('07:00')\" >07:00</a>\n                    </div>\n                </div>\n            </div>\n\n\n            <div class=\"row\" align=\"center\">\n                <h5>3er horario: </h5>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Dia: {{dia3}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveDia3('Lunes')\" >Lunes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia3('Martes')\" >Martes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia3('Miercoles')\" >Miercoles</a>\n                        <a class=\"nav-link\" (click)=\"saveDia3('Jueves')\" >Jueves</a>\n                        <a class=\"nav-link\" (click)=\"saveDia3('Viernes')\" >Viernes</a>\n                        <a class=\"nav-link\" (click)=\"saveDia3('Sabado')\" >Sabado</a>\n                    </div>\n                </div>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Desde: {{hora_inicio3}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('07:00')\" >07:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('08:30')\" >08:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('10:00')\" >10:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('11:30')\" >11:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('01:00')\" >01:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('02:30')\" >02:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('04:00')\" >04:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraInicio3('05:30')\" >05:30</a>\n                    </div>\n                </div>\n                &nbsp;\n                <div class=\"dropdown\">\n                    <span class=\"styleA\">Hasta: {{hora_fin3}}</span>\n                    <div class=\"dropdown-content\">\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('08:30')\" >08:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('10:00')\" >10:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('11:30')\" >11:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('01:00')\" >01:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('02:30')\" >02:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('04:00')\" >04:00</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('05:30')\" >05:30</a>\n                        <a class=\"nav-link\" (click)=\"saveHoraFin3('07:00')\" >07:00</a>\n                    </div>\n                </div>\n            </div>\n\n                       <hr>\n\n            <button type=\"submit\" class=\"styleA\" [disabled]=\"!signUpForm.valid\">Ofrecer {{objeto}}</button>\n\n        </form>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfrecerPageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_horariosDisponibles__ = __webpack_require__("../../../../../src/app/models/horariosDisponibles.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_objetoOfrecido__ = __webpack_require__("../../../../../src/app/models/objetoOfrecido.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var OfrecerPageComponent = (function () {
+    function OfrecerPageComponent(objetoService, objetoOfrecidoService, formBuilder, router, usersService) {
+        this.objetoService = objetoService;
+        this.objetoOfrecidoService = objetoOfrecidoService;
+        this.formBuilder = formBuilder;
+        this.router = router;
+        this.usersService = usersService;
+        this.objetoList = [];
+        this.signUpForm = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["c" /* FormGroup */]({
+            descripcion: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormControl */](),
+            precio: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormControl */](),
+        });
+    }
+    OfrecerPageComponent.prototype.ofrecerObjeto = function () {
+        var _this = this;
+        this.usersService.getUserByEmail().subscribe(function (userResponse) {
+            _this.userTemp = userResponse;
+            _this.objetoService.getObjeto(_this.objeto).subscribe(function (objetoResponse) {
+                _this.objetoTemp = objetoResponse;
+                var obf;
+                obf = new __WEBPACK_IMPORTED_MODULE_3__models_objetoOfrecido__["a" /* ObjetoOfrecido */](_this.userTemp, _this.objetoTemp, _this.signUpForm.get('descripcion').value, _this.signUpForm.get('precio').value);
+                _this.usersService.addObjetoOfrecido(obf).subscribe(function (objetoResponse) {
+                    console.log(objetoResponse);
+                    obf = objetoResponse;
+                    console.log(objetoResponse);
+                    window.alert("Ya fue creado");
+                    _this.router.navigate(['objetos']);
+                    _this.objetoOfrecidoService.addHorarioDisponible(new __WEBPACK_IMPORTED_MODULE_2__models_horariosDisponibles__["a" /* HorariosDisponibles */](_this.dia1, _this.hora_inicio1, _this.hora_fin1)).subscribe(function (objetoResponse) {
+                    });
+                    _this.objetoOfrecidoService.addHorarioDisponible(new __WEBPACK_IMPORTED_MODULE_2__models_horariosDisponibles__["a" /* HorariosDisponibles */](_this.dia2, _this.hora_inicio2, _this.hora_fin2)).subscribe(function (objetoResponse) {
+                    });
+                    _this.objetoOfrecidoService.addHorarioDisponible(new __WEBPACK_IMPORTED_MODULE_2__models_horariosDisponibles__["a" /* HorariosDisponibles */](_this.dia3, _this.hora_inicio3, _this.hora_fin3)).subscribe(function (objetoResponse) {
+                    });
+                });
+            });
+        }, function (error) {
+        });
+    };
+    OfrecerPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        window.scroll(0, 0);
+        this.objetoService.getObjetos().subscribe(function (objetoResponse) {
+            _this.objetoList = objetoResponse;
+        });
+    };
+    OfrecerPageComponent.prototype.saveObjeto = function (objeto) {
+        this.objeto = objeto;
+    };
+    OfrecerPageComponent.prototype.saveDia = function (dia1) {
+        this.dia1 = dia1;
+    };
+    OfrecerPageComponent.prototype.saveHoraInicio = function (hora_inicio1) {
+        this.hora_inicio1 = hora_inicio1;
+    };
+    OfrecerPageComponent.prototype.saveHoraFin = function (hora_fin1) {
+        this.hora_fin1 = hora_fin1;
+    };
+    OfrecerPageComponent.prototype.saveDia2 = function (dia2) {
+        this.dia2 = dia2;
+    };
+    OfrecerPageComponent.prototype.saveHoraInicio2 = function (hora_inicio2) {
+        this.hora_inicio2 = hora_inicio2;
+    };
+    OfrecerPageComponent.prototype.saveHoraFin2 = function (hora_fin2) {
+        this.hora_fin2 = hora_fin2;
+    };
+    OfrecerPageComponent.prototype.saveDia3 = function (dia3) {
+        this.dia3 = dia3;
+    };
+    OfrecerPageComponent.prototype.saveHoraInicio3 = function (hora_inicio3) {
+        this.hora_inicio3 = hora_inicio3;
+    };
+    OfrecerPageComponent.prototype.saveHoraFin3 = function (hora_fin3) {
+        this.hora_fin3 = hora_fin3;
+    };
+    return OfrecerPageComponent;
+}());
+OfrecerPageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-ofrecer-page',
+        template: __webpack_require__("../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_objeto_service__["a" /* ObjetoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_objeto_service__["a" /* ObjetoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_users_service__["a" /* UsersService */]) === "function" && _e || Object])
+], OfrecerPageComponent);
+
+var _a, _b, _c, _d, _e;
+//# sourceMappingURL=ofrecer-page.component.js.map
 
 /***/ }),
 
@@ -841,6 +1028,7 @@ var SignInPageComponent = (function () {
         });
     };
     SignInPageComponent.prototype.ngOnInit = function () {
+        window.scroll(0, 0);
         this.loginError = "";
     };
     return SignInPageComponent;
@@ -923,6 +1111,7 @@ var SignUpPageComponent = (function () {
         var _this = this;
         this.usersService.signUp(this.signUpForm.get('email').value + "@mail.escuelaing.edu.co", this.signUpForm.get('password').value, this.signUpForm.get('name').value, this.signUpForm.get('email').value, this.genero, this.signUpForm.get('celphone').value).subscribe(function (loginResponse) {
             _this.usersService.login(_this.signUpForm.get('email').value + "@mail.escuelaing.edu.co", _this.signUpForm.get('password').value).subscribe(function (loginResponse) {
+                sessionStorage.setItem("currentUser", _this.signUpForm.get('email').value);
                 _this.router.navigate(['objetos']);
             }, function (error) {
             });
@@ -930,7 +1119,6 @@ var SignUpPageComponent = (function () {
         });
     };
     SignUpPageComponent.prototype.saveGender = function (genero) {
-        console.log(genero);
         this.genero = genero;
     };
     SignUpPageComponent.prototype.ngOnInit = function () {
@@ -1061,6 +1249,12 @@ var ObjetoService = (function (_super) {
     ObjetoService.prototype.getObjetos = function () {
         return this.get(this.resourceUrl + "getAll");
     };
+    ObjetoService.prototype.getObjeto = function (name) {
+        return this.get(this.resourceUrl + name);
+    };
+    ObjetoService.prototype.registrarObjetoOfrecido = function (objetoOfrecido) {
+        return this.post("objetosOfrecidos/registrarObjetoOfrecido", objetoOfrecido);
+    };
     return ObjetoService;
 }(__WEBPACK_IMPORTED_MODULE_2__common_api_service__["a" /* APIService */]));
 ObjetoService = __decorate([
@@ -1130,6 +1324,9 @@ var ObjetoOfrecidoService = (function (_super) {
             return this.get(this.resourceUrl + "byNameLogeado/" + name + "/" + data + ".");
         }
     };
+    ObjetoOfrecidoService.prototype.addHorarioDisponible = function (hd) {
+        return this.post(this.resourceUrl + "agregarHorario", hd);
+    };
     return ObjetoOfrecidoService;
 }(__WEBPACK_IMPORTED_MODULE_2__common_api_service__["a" /* APIService */]));
 ObjetoOfrecidoService = __decorate([
@@ -1198,6 +1395,16 @@ var UsersService = (function (_super) {
     };
     UsersService.prototype.signUp = function (email, password, name, username, genero, celular) {
         return this.post("user/signup", new __WEBPACK_IMPORTED_MODULE_5__models_user__["a" /* User */](email, password, name, username, genero, celular));
+    };
+    UsersService.prototype.getUserByEmail = function () {
+        var data = sessionStorage.getItem("currentUser") + "@mail.escuelaing.edu.co.";
+        console.log(data);
+        return this.get("user/byEmail/" + data);
+    };
+    UsersService.prototype.addObjetoOfrecido = function (obf) {
+        var data = sessionStorage.getItem("currentUser") + "@mail.escuelaing.edu.co.";
+        console.log(data);
+        return this.post("user/addObjetoOfrecido/" + data, obf);
     };
     return UsersService;
 }(__WEBPACK_IMPORTED_MODULE_2__common_api_service__["a" /* APIService */]));
