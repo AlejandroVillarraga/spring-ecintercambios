@@ -18,4 +18,6 @@ public interface ObjetoOfrecidoService {
 
     ObjetoOfrecido agregarHorario(HorariosDisponibles horariosDisponibles);
 
+    ObjetoOfrecido getObjetoById(long id);
+
 }

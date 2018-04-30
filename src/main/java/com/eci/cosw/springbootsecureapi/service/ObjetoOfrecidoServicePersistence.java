@@ -51,4 +51,9 @@ public class ObjetoOfrecidoServicePersistence implements ObjetoOfrecidoService {
         obofrerepo.save(objetoOfrecido);
         return objetoOfrecido;
     }
+
+    @Override
+    public ObjetoOfrecido getObjetoById(long id) {
+        return obofrerepo.findOne(id);
+    }
 }

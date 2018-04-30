@@ -66,6 +66,15 @@ public class User
         this.celular=celular;
     }
 
+    public User(String email, String password, String name , String username,
+                String genero) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.username = username;
+        this.genero=genero;
+    }
+
     @Column(name = "numero_opiniones", nullable = false)
     public int getNumeroDeOpiniones() {
         return numeroDeOpiniones;

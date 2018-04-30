@@ -1,8 +1,10 @@
 package com.eci.cosw.springbootsecureapi.controller;
 
+import com.eci.cosw.springbootsecureapi.model.HorariosDisponibles;
 import com.eci.cosw.springbootsecureapi.model.Objeto;
 import com.eci.cosw.springbootsecureapi.model.ObjetoOfrecido;
 import com.eci.cosw.springbootsecureapi.model.User;
+import com.eci.cosw.springbootsecureapi.service.HorariosDisponiblesService;
 import com.eci.cosw.springbootsecureapi.service.ObjetoOfrecidoService;
 import com.eci.cosw.springbootsecureapi.service.ObjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,29 +15,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping( "objeto" )
-public class ObjetoController {
+@RequestMapping( "horariosDisponibles" )
+public class HorariosDisponiblesController {
 
     @Autowired
-    private ObjetoService objetoService;
+    private HorariosDisponiblesService horarioService;
+
 
     @CrossOrigin
-    @RequestMapping( value = "/getAll", method = RequestMethod.GET )
-    public List<Objeto> getObjetos() {
-        return objetoService.getAllObjetos();
+    @RequestMapping( value = "/getById/{id}", method = RequestMethod.GET )
+    public HorariosDisponibles getObjetoByName(@PathVariable long id) {
+        return horarioService.getHorarioById(id);
     }
-
-    @CrossOrigin
-    @RequestMapping( value = "/{name}", method = RequestMethod.GET )
-    public Objeto getObjetoByName(@PathVariable String name) {
-        return objetoService.getObjetoByName(name);
-    }
-
-
-
-
-
-
-
 
 }

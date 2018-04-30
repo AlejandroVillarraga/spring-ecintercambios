@@ -55,6 +55,15 @@ public class ObjetoOfrecidoController {
         return new ResponseEntity<>(objetoOfrecidoService.agregarHorario(horariosDisponibles), HttpStatus.ACCEPTED);
     }
 
+    @CrossOrigin
+    @RequestMapping( value = "/getById/{id}", method = RequestMethod.GET )
+    public ObjetoOfrecido getObjetoOfrecidoById(@PathVariable long id) {
+        return objetoOfrecidoService.getObjetoById(id);
+    }
+
+
+
+
 
 
 
