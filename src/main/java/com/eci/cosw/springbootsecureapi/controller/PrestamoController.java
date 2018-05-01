@@ -32,5 +32,17 @@ public class PrestamoController {
         return prestamoService.getPrestamo(id);
     }
 
+    @CrossOrigin
+    @RequestMapping( value = "/getMisSolicitudes/{email}", method = RequestMethod.GET )
+    public List<Prestamo> getMisSolicitudes(@PathVariable String email) {
+        return prestamoService.getMisSolicitudes(email);
+    }
+
+    @CrossOrigin
+    @RequestMapping( value = "/getMisObjetosPrestados/{email}", method = RequestMethod.GET )
+    public List<Prestamo> getMisObjetosPrestados(@PathVariable String email) {
+        return prestamoService.getMisObjetosPrestados(email);
+    }
+
 
 }

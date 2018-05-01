@@ -46,4 +46,14 @@ public class PrestamoServiceImpl implements PrestamoService {
     public Prestamo getPrestamo(long id) {
         return presrepo.findOne(id);
     }
+
+    @Override
+    public List<Prestamo> getMisSolicitudes(String email) {
+        return presrepo.getMisSolicitudes(email);
+    }
+
+    @Override
+    public List<Prestamo> getMisObjetosPrestados(String email) {
+        return presrepo.getMisObjetosPrestados(email);
+    }
 }

@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n</button>\n\n  <a  class=\"navbar-brand\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">\n    <img src=\"/assets/brand/logo.svg\" width=\"25\" height=\"25\">\n    ECIntercambios\n  </a>\n    &nbsp;\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">Categorias</a>\n      </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/ofrecerObjeto\" routerLink=\"/ofrecerObjeto\"  class=\"nav-link\" class=\"styleA\" >Ofrecer Objeto</a>\n        </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/prestarObjeto\" routerLink=\"/prestarObjeto\"  class=\"nav-link\" class=\"styleA\" >Solicitudes</a>\n        </li>\n        &nbsp;\n    </ul>\n    <ul class=\"navbar-nav lr-auto\">\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signin\" routerLink=\"/signin\"  class=\"styleA\" >Ingresa</a>\n      </li>\n        &nbsp;\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signup\" routerLink=\"/signup\"  class=\"styleA\" >Registrate</a>\n      </li>\n        &nbsp;\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/objetos\" routerLink=\"/objetos\"  class=\"nav-link\" (click)=\"signOut()\" class=\"styleA\" >Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n</button>\n\n  <a  class=\"navbar-brand\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">\n    <img src=\"/assets/brand/logo.svg\" width=\"25\" height=\"25\">\n    ECIntercambios\n  </a>\n    &nbsp;\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">Categorias</a>\n      </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/ofrecerObjeto\" routerLink=\"/ofrecerObjeto\"  class=\"nav-link\" class=\"styleA\" >Ofrecer Objeto</a>\n        </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/solicitud\" routerLink=\"/solicitud\"  class=\"nav-link\" class=\"styleA\" >Solicitudes</a>\n        </li>\n        &nbsp;\n    </ul>\n    <ul class=\"navbar-nav lr-auto\">\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signin\" routerLink=\"/signin\"  class=\"styleA\" >Ingresa</a>\n      </li>\n        &nbsp;\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signup\" routerLink=\"/signup\"  class=\"styleA\" >Registrate</a>\n      </li>\n        &nbsp;\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/objetos\" routerLink=\"/objetos\"  class=\"nav-link\" (click)=\"signOut()\" class=\"styleA\" >Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -67,6 +67,8 @@ var AppComponent = (function () {
         if (!this.authService.isLoggedIn()) {
             this.router.navigate(['/objetos']);
         }
+        this.router.navigate(['/objetos']);
+        this.signOut();
     }
     AppComponent.prototype.isLoggedIn = function () {
         return this.authService.isLoggedIn();
@@ -107,25 +109,27 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__ = __webpack_require__("../../../../../src/app/pages/objetos-page/objetos-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__ = __webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/pages/page-not-found/page-not-found.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_config_initial_config__ = __webpack_require__("../../../../../src/app/common/config/initial-config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_app_data_service__ = __webpack_require__("../../../../../src/app/common/app-data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_sign_in_sign_in_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_sign_up_sign_up_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-up/sign-up-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_prestamo_service__ = __webpack_require__("../../../../../src/app/services/prestamo.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__common_config_initial_config__ = __webpack_require__("../../../../../src/app/common/config/initial-config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_app_data_service__ = __webpack_require__("../../../../../src/app/common/app-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_sign_in_sign_in_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_sign_up_sign_up_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-up/sign-up-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -152,11 +156,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var ROUTES = [
-    { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_18__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
+    { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_19__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */] },
     { path: 'objetos', component: __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
     { path: 'prestadores', component: __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_19__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_20__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
     { path: 'ofrecerObjeto', component: __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */] },
     { path: 'solicitud', component: __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
@@ -172,35 +176,36 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */],
             __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */],
             __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */],
             __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */],
             __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */],
             __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_14__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_15__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_11__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(ROUTES),
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* ReactiveFormsModule */]
         ],
         providers: [
             {
-                provide: __WEBPACK_IMPORTED_MODULE_13__common_config_initial_config__["a" /* INITIAL_CONFIG */],
+                provide: __WEBPACK_IMPORTED_MODULE_14__common_config_initial_config__["a" /* INITIAL_CONFIG */],
                 useValue: {
                     apiURL: 'https://ecintercambios.herokuapp.com'
                 }
             },
-            __WEBPACK_IMPORTED_MODULE_12__common_config_app_configuration_service__["a" /* AppConfiguration */],
-            __WEBPACK_IMPORTED_MODULE_15__common_api_service__["a" /* APIService */],
-            __WEBPACK_IMPORTED_MODULE_16__common_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_17__common_app_data_service__["a" /* AppDataService */],
-            __WEBPACK_IMPORTED_MODULE_20__services_users_service__["a" /* UsersService */],
-            __WEBPACK_IMPORTED_MODULE_22__services_objeto_service__["a" /* ObjetoService */],
-            __WEBPACK_IMPORTED_MODULE_23__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */]
+            __WEBPACK_IMPORTED_MODULE_13__common_config_app_configuration_service__["a" /* AppConfiguration */],
+            __WEBPACK_IMPORTED_MODULE_16__common_api_service__["a" /* APIService */],
+            __WEBPACK_IMPORTED_MODULE_17__common_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_18__common_app_data_service__["a" /* AppDataService */],
+            __WEBPACK_IMPORTED_MODULE_21__services_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_objeto_service__["a" /* ObjetoService */],
+            __WEBPACK_IMPORTED_MODULE_24__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */],
+            __WEBPACK_IMPORTED_MODULE_11__services_prestamo_service__["a" /* PrestamoService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
@@ -559,7 +564,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".loader {\n  border: 16px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 16px solid #3498db;\n  width: 120px;\n  height: 120px;\n  -webkit-animation: spin 2s linear infinite; /* Safari */\n  animation: spin 2s linear infinite;\n}\n\n/* Safari */\n@-webkit-keyframes spin {\n  0% { -webkit-transform: rotate(0deg); }\n  100% { -webkit-transform: rotate(360deg); }\n}\n\n@keyframes spin {\n  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }\n  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }\n}", ""]);
 
 // exports
 
@@ -572,7 +577,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  Welcome to COSW angular seed\n</p>"
+module.exports = "<br>\n<br>\n<br>\n<div class=\"loader\" aling=\"center\"></div>\n<p>\n Espera un momento ...\n</p>"
 
 /***/ }),
 
@@ -914,7 +919,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/prestadores-page/prestadores-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let cl of objetosOfrecidosList\" class=\"col-xs-6 col-xs-3\">\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n\n            <div class=\"card\"  style=\"width:1050px\">\n                <div class=\"row \">\n                    <div class=\"col-sm-4\">\n                        <div class=\"card-block px-3\">\n                            <img class=\"category\" src=\"/assets/generos/{{cl.user.genero}}.svg\" width=\"150px\" height=\"150px\">\n                            <hr>\n                            <font size=\"3\">{{cl.user.name}}</font>\n                            <hr>\n                            <img class=\"category\" src=\"/assets/estrellas/{{cl.user.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                            <hr>\n                            <font size=\"1\">Número de opiniones: {{cl.user.numeroDeOpiniones}}</font>\n                            <hr>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <br>\n                        <img class=\"category\" src=\"{{cl.objeto_ofrecido.image}}\" width=\"199px\" height=\"199px\">\n                        <p>{{cl.objeto_ofrecido.name}}</p>\n                        <p>Precio: ${{cl.precio}} COP</p>\n                        <p>Descripción: {{cl.descripcion}}</p>\n                    </div>\n\n                    <div  class=\"col-sm-4\">\n                        <br>\n                        Disponibilidad\n                        <div *ngFor=\"let hd of cl.horariosDisponibles\" class=\"col-xs-6 col-xs-3\">\n                            <hr>\n                            <div class=\"horariosDiv\">\n                                <p>\n                                    <font size=\"3\" >{{hd.dia}}</font>\n                                </p>\n                                <p>\n                                    <font size=\"3\" >Horario: {{hd.hora_inicio}} a  {{hd.hora_fin}}</font>\n                                </p>\n                                <div *ngIf=\"isLoggedIn()\">\n                                    <a  routerLinkActive=\"/objetos\" routerLink=\"/objetos\" (click)=\"saveData(cl.id, hd.id, cl.user.email)\">Solicitar {{cl.objeto_ofrecido.name}} en este horario</a>\n                                </div>\n                                <div *ngIf=\"!isLoggedIn()\">\n                                    <a  routerLinkActive=\"/signin\" routerLink=\"/signin\" >Solicitar {{cl.objeto_ofrecido.name}} en este horario</a>\n                                </div>\n                            </div>\n\n                        </div>\n                    <hr>\n                    </div>\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n</div>\n<font size=\"3\" color=\"red\">{{errorText}}</font>"
+module.exports = "<div *ngFor=\"let cl of objetosOfrecidosList\" class=\"col-xs-6 col-xs-3\">\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n\n            <div class=\"card\"  style=\"width:1050px\">\n                <div class=\"row \">\n                    <div class=\"col-sm-4\">\n                        <div class=\"card-block px-3\">\n                            <img class=\"category\" src=\"/assets/generos/{{cl.user.genero}}.svg\" width=\"150px\" height=\"150px\">\n                            <hr>\n                            <font size=\"3\">{{cl.user.name}}</font>\n                            <hr>\n                            <img class=\"category\" src=\"/assets/estrellas/{{cl.user.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                            <hr>\n                            <font size=\"1\">Número de opiniones: {{cl.user.numeroDeOpiniones}}</font>\n                            <hr>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <br>\n                        <img class=\"category\" src=\"{{cl.objeto_ofrecido.image}}\" width=\"199px\" height=\"199px\">\n                        <p>{{cl.objeto_ofrecido.name}}</p>\n                        <p>Precio: ${{cl.precio}} COP</p>\n                        <p>Descripción: {{cl.descripcion}}</p>\n                    </div>\n\n                    <div  class=\"col-sm-4\">\n                        <br>\n                        Disponibilidad\n                        <div *ngFor=\"let hd of cl.horariosDisponibles\" class=\"col-xs-6 col-xs-3\">\n                            <hr>\n                            <div class=\"horariosDiv\">\n                                <p>\n                                    <font size=\"3\" >{{hd.dia}}</font>\n                                </p>\n                                <p>\n                                    <font size=\"3\" >Horario: {{hd.hora_inicio}} a  {{hd.hora_fin}}</font>\n                                </p>\n                                <div *ngIf=\"isLoggedIn()\">\n                                    <a  routerLinkActive=\"/home\" routerLink=\"/home\" (click)=\"saveData(cl.id, hd.id, cl.user.email)\">Solicitar {{cl.objeto_ofrecido.name}} en este horario</a>\n                                </div>\n                                <div *ngIf=\"!isLoggedIn()\">\n                                    <a  routerLinkActive=\"/signin\" routerLink=\"/signin\" >Solicitar {{cl.objeto_ofrecido.name}} en este horario</a>\n                                </div>\n                            </div>\n\n                        </div>\n                    <hr>\n                    </div>\n                </div>\n\n\n            </div>\n\n        </div>\n\n    </div>\n</div>\n<font size=\"3\" color=\"red\">{{errorText}}</font>"
 
 /***/ }),
 
@@ -925,10 +930,11 @@ module.exports = "<div *ngFor=\"let cl of objetosOfrecidosList\" class=\"col-xs-
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrestadoresPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_prestamo__ = __webpack_require__("../../../../../src/app/models/prestamo.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_prestamo__ = __webpack_require__("../../../../../src/app/models/prestamo.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -944,10 +950,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PrestadoresPageComponent = (function () {
-    function PrestadoresPageComponent(objetoOfrecidoService, authService, horariosDisponiblesService, usersService) {
+    function PrestadoresPageComponent(objetoOfrecidoService, authService, router, horariosDisponiblesService, usersService) {
         this.objetoOfrecidoService = objetoOfrecidoService;
         this.authService = authService;
+        this.router = router;
         this.horariosDisponiblesService = horariosDisponiblesService;
         this.usersService = usersService;
         this.objetosOfrecidosList = [];
@@ -982,8 +990,9 @@ var PrestadoresPageComponent = (function () {
                     _this.objetoActual = objetoResponse;
                     _this.horariosDisponiblesService.getHorarioById(data2).subscribe(function (horarioResponse) {
                         _this.horarioDActual = horarioResponse;
-                        var prestamo = new __WEBPACK_IMPORTED_MODULE_5__models_prestamo__["a" /* Prestamo */](_this.prestador, _this.solicitante, false, _this.objetoActual, _this.horarioDActual);
+                        var prestamo = new __WEBPACK_IMPORTED_MODULE_6__models_prestamo__["a" /* Prestamo */](_this.prestador, _this.solicitante, false, _this.objetoActual, _this.horarioDActual);
                         _this.objetoOfrecidoService.savePrestamo(prestamo).subscribe(function (prestamoResponse) {
+                            _this.router.navigate(['/objetos']);
                         }, function (error) {
                             ;
                         });
@@ -1004,10 +1013,10 @@ PrestadoresPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__common_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_users_service__["a" /* UsersService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__common_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_users_service__["a" /* UsersService */]) === "function" && _e || Object])
 ], PrestadoresPageComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=prestadores-page.component.js.map
 
 /***/ }),
@@ -1200,7 +1209,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n.row{\n    padding: 20px 20px 20px 20px;\n}\n\n\n.card{\n    border-style: solid;\n    border-width: 2px;\n    border-color: black;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\n}", ""]);
 
 // exports
 
@@ -1213,7 +1222,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/solicitud-page/solicitud-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<br>\n<br>\n\n\n<div class=\"card\"  style=\"width:1050px\">\n    <div class=\"row \">\n        <div class=\"col-sm-4\">\n            <div class=\"card-block px-3\">\n                <img class=\"category\" src=\"/assets/generos/{{objetoActual.user.genero}}.svg\" width=\"150px\" height=\"150px\">\n                <hr>\n                <font size=\"3\">{{objetoActual.user.name}}</font>\n                <hr>\n                <img class=\"category\" src=\"/assets/estrellas/{{objetoActual.user.calificacion}}.png\" width=\"200px\" height=\"40px\">\n\n                <hr>\n                <font size=\"1\">Número de opiniones: {{objetoActual.user.numeroDeOpiniones}}</font>\n                <hr>\n            </div>\n        </div>\n        <div class=\"col-sm-4\">\n            <br>\n            <img class=\"category\" src=\"{{objetoActual.objeto_ofrecido.image}}\" width=\"199px\" height=\"199px\">\n            <p>{{objetoActual.objeto_ofrecido.name}}</p>\n            <p>Precio: ${{objetoActual.precio}} COP</p>\n            <p>Descripción: {{objetoActual.descripcion}}</p>\n        </div>\n\n        <div  class=\"col-sm-4\">\n            <br>\n            Horario\n            <div  class=\"col-xs-6 col-xs-3\">\n                <hr>\n                <div class=\"horariosDiv\">\n                    <p>\n                        <font size=\"3\" >{{horarioDActual.dia}}</font>\n                    </p>\n                    <p>\n                        <font size=\"3\" >Horario: {{horarioDActual.hora_inicio}} a  {{horarioDActual.hora_fin}}</font>\n                    </p>\n                </div>\n\n            </div>\n            <hr>\n        </div>\n    </div>\n\n\n</div>\n"
+module.exports = "<br>\n<br>\n<h1>Mis Solicitudes</h1>\n<font size=\"3\" color=\"grey\">Más abajo encontraras las solicitudes que han realizado para tus objetos.</font>\n<br>\n<font size=\"5\">A continuación, lo que has solicitado prestado:</font>\n\n<div class=\"row\">\n\n    <div *ngFor=\"let misSol of misSolicitudes\" class=\"col-xs-6 col-xs-3\">\n          <div class=\"card\"  style=\"width:900px\">\n            <div class=\"row \">\n                <div class=\"col-sm-5\">\n\n                    <font size=\"4\">{{misSol.objetoOfrecido.objeto_ofrecido.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"{{misSol.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                    <hr>\n                    <font size=\"4\">{{misSol.objetoOfrecido.descripcion}}</font>\n                    <hr>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misSol.objetoOfrecido.precio}} COP</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misSol.horariosDisponibles.dia}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misSol.horariosDisponibles.hora_inicio}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misSol.horariosDisponibles.hora_fin}}</font>\n\n\n                </div>\n                <div  class=\"col-sm-7\">\n                    <div *ngIf=\"misSol.aceptado\">\n                        <font size=\"3\" color=\"grey\">Ahora que tu solicitud fue aceptada</font>\n                        <font size=\"3\" color=\"grey\"> puedes contactarte con tu compañero</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/generos/{{misSol.prestador.genero}}.svg\" width=\"100px\" height=\"100px\">\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misSol.prestador.name}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Email: </font> {{misSol.prestador.email}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Cel: </font> {{misSol.prestador.celular}}</font>\n\n                    </div>\n                    <div *ngIf=\"!misSol.aceptado\">\n                        <font size=\"4\" color=\"red\">Esta solicitud no ha sido aceptada!!!!</font>\n                        <br>\n                        <font size=\"3\" color=\"red\">Espera a que tu compañero apruebe esta solicitud</font>\n                    </div>\n                </div>\n            </div>\n\n\n        </div>\n\n\n\n\n        <br>\n    </div>\n\n</div>\n\n\n<img  src=\"/assets/brand/imagenU.jpg\" width=\"850px\" height=\"281px\">\n<h1>Mis Solicitudes a aprovar ...</h1>\n<br>\n<font size=\"5\">A continuación, lo que ten han pedido prestado:</font>\n\n<div class=\"row\">\n\n    <div *ngFor=\"let misPres of misObjetosPrestados\" class=\"col-xs-6 col-xs-3\">\n        <div class=\"card\"  style=\"width:900px\">\n            <div class=\"row \">\n                <div class=\"col-sm-5\">\n\n                    <font size=\"4\">{{misPres.objetoOfrecido.objeto_ofrecido.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"{{misPres.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                    <hr>\n                    <font size=\"4\">{{misPres.objetoOfrecido.descripcion}}</font>\n                    <hr>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misPres.objetoOfrecido.precio}} COP</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misPres.horariosDisponibles.dia}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misPres.horariosDisponibles.hora_inicio}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misPres.horariosDisponibles.hora_fin}}</font>\n\n\n                </div>\n                <div  class=\"col-sm-7\">\n                    <font size=\"3\" color=\"grey\">Solicitud</font>\n                    <br>\n                    <img class=\"category\" src=\"/assets/generos/{{misPres.solicitante.genero}}.svg\" width=\"100px\" height=\"100px\">\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misPres.solicitante.name}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Email: </font> {{misPres.solicitante.email}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Cel: </font> {{misPres.solicitante.celular}}</font>\n\n                    <div *ngIf=\"misPres.aceptado\">\n                        <font size=\"5\" color=\"red\">Solicitud Aprobada</font>\n                    </div>\n                    <div *ngIf=\"!misPres.aceptado\">\n                        <font size=\"5\" color=\"red\">Aprobar</font>\n                    </div>\n\n                </div>\n            </div>\n\n\n        </div>\n\n\n\n\n        <br>\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -1223,8 +1232,7 @@ module.exports = "<br>\n<br>\n<br>\n\n\n<div class=\"card\"  style=\"width:1050p
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SolicitudPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_prestamo_service__ = __webpack_require__("../../../../../src/app/services/prestamo.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1236,24 +1244,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var SolicitudPageComponent = (function () {
-    function SolicitudPageComponent(objetoOfrecidoService, horariosDisponiblesService) {
-        this.objetoOfrecidoService = objetoOfrecidoService;
-        this.horariosDisponiblesService = horariosDisponiblesService;
+    function SolicitudPageComponent(prestamoService) {
+        this.prestamoService = prestamoService;
+        this.misSolicitudes = [];
+        this.misObjetosPrestados = [];
     }
     SolicitudPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         window.scroll(0, 0);
-        this.objetoId = sessionStorage.getItem("objetoSolicitadoId");
-        this.horarioId = sessionStorage.getItem("horarioSolicitadoId");
-        this.objetoOfrecidoService.getObjetoOfrecido(this.objetoId).subscribe(function (objetoResponse) {
-            _this.objetoActual = objetoResponse;
-        }, function (error) {
-        });
-        this.horariosDisponiblesService.getHorarioById(this.horarioId).subscribe(function (horarioResponse) {
-            _this.horarioDActual = horarioResponse;
-        }, function (error) {
+        this.prestamoService.getMisObjetosPrestados().subscribe(function (prestamoResponse) {
+            _this.misObjetosPrestados = prestamoResponse;
+            console.log(_this.misObjetosPrestados);
+            _this.prestamoService.getMisSolicitudes().subscribe(function (prestamoResponse) {
+                _this.misSolicitudes = prestamoResponse;
+                console.log(_this.misSolicitudes);
+            });
         });
     };
     return SolicitudPageComponent;
@@ -1264,10 +1270,10 @@ SolicitudPageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/solicitud-page/solicitud-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/solicitud-page/solicitud-page.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_prestamo_service__["a" /* PrestamoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_prestamo_service__["a" /* PrestamoService */]) === "function" && _a || Object])
 ], SolicitudPageComponent);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=solicitud-page.component.js.map
 
 /***/ }),
@@ -1473,6 +1479,71 @@ ObjetoOfrecidoService = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=objetoOfrecido.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/prestamo.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrestamoService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//Importaciones nuevas
+
+
+
+
+var PrestamoService = (function (_super) {
+    __extends(PrestamoService, _super);
+    function PrestamoService(config, authService, http) {
+        var _this = _super.call(this, config, authService, http) || this;
+        _this.config = config;
+        _this.authService = authService;
+        _this.http = http;
+        _this.resourceUrl = 'prestamo/';
+        return _this;
+    }
+    PrestamoService.prototype.getMisSolicitudes = function () {
+        var data = sessionStorage.getItem("currentUser") + "@mail.escuelaing.edu.co.";
+        return this.get(this.resourceUrl + "getMisSolicitudes/" + data);
+    };
+    PrestamoService.prototype.getMisObjetosPrestados = function () {
+        var data = sessionStorage.getItem("currentUser") + "@mail.escuelaing.edu.co.";
+        return this.get(this.resourceUrl + "getMisObjetosPrestados/" + data);
+    };
+    return PrestamoService;
+}(__WEBPACK_IMPORTED_MODULE_2__common_api_service__["a" /* APIService */]));
+PrestamoService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__common_config_app_configuration_service__["a" /* AppConfiguration */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__common_config_app_configuration_service__["a" /* AppConfiguration */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__common_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__common_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _c || Object])
+], PrestamoService);
+
+var _a, _b, _c;
+//# sourceMappingURL=prestamo.service.js.map
 
 /***/ }),
 
