@@ -29,6 +29,14 @@ public class HorariosDisponibles {
         this.hora_fin = hora_fin;
     }
 
+    public HorariosDisponibles(long id, String dia, String hora_inicio, String hora_fin, ObjetoOfrecido objetoOfrecido) {
+        this.id = id;
+        this.dia = dia;
+        this.hora_inicio = hora_inicio;
+        this.hora_fin = hora_fin;
+        this.objetoOfrecido = objetoOfrecido;
+    }
+
     public HorariosDisponibles() {
     }
 

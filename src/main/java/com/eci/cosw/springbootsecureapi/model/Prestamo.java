@@ -24,6 +24,8 @@ public class Prestamo {
         this.horariosDisponibles = horariosDisponibles;
     }
 
+
+
     public Prestamo() {
     }
 
@@ -39,7 +41,7 @@ public class Prestamo {
         this.id = id;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="prestador", referencedColumnName="email", nullable=true)
     public User getPrestador() {
         return prestador;
@@ -49,7 +51,7 @@ public class Prestamo {
         this.prestador = prestador;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="solicitante", referencedColumnName="email", nullable=true)
     public User getSolicitante() {
         return solicitante;
@@ -68,7 +70,7 @@ public class Prestamo {
         this.aceptado = aceptado;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="objeto_ofrecido", referencedColumnName="id", nullable=true)
     public ObjetoOfrecido getObjetoOfrecido() {
         return objetoOfrecido;
@@ -78,7 +80,7 @@ public class Prestamo {
         this.objetoOfrecido = objetoOfrecido;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="horarios_disponibles", referencedColumnName="id", nullable=true)
     public HorariosDisponibles getHorariosDisponibles() {
         return horariosDisponibles;
