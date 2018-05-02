@@ -21,7 +21,6 @@ public class PrestamoController {
     @CrossOrigin
     @RequestMapping(value = "/savePrestamo", method = RequestMethod.POST)
     public ResponseEntity<?> addObjetoOfrecido(@RequestBody Prestamo prestamo) {
-        System.out.println("Entro Al CONTROLLLEEEEEEEEEEEEEEEEEEER");
         return new ResponseEntity<>(prestamoService.savePrestamo(prestamo), HttpStatus.ACCEPTED);
     }
 
@@ -42,6 +41,12 @@ public class PrestamoController {
     @RequestMapping( value = "/getMisObjetosPrestados/{email}", method = RequestMethod.GET )
     public List<Prestamo> getMisObjetosPrestados(@PathVariable String email) {
         return prestamoService.getMisObjetosPrestados(email);
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/aprobarPrestamo/{id}", method = RequestMethod.POST)
+    public ResponseEntity<?> aprobarPrestamo(@PathVariable long id) {
+        return new ResponseEntity<>(prestamoService.aprobarPrestamo(id), HttpStatus.ACCEPTED);
     }
 
 

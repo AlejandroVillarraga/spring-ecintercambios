@@ -19,6 +19,9 @@ public class UserServicePersistence implements UserService {
     UserRepository userRepository;
 
     @Autowired
+    CalificacionRepository calirepo;
+
+    @Autowired
     ObjetoOfrecidoRepository objetoOfrecidoRepository;
 
 
@@ -32,6 +35,8 @@ public class UserServicePersistence implements UserService {
     @Override
     public User getUser(String email) {
         User u = userRepository.findOne(email);
+        //int calificacionPromedio = calirepo.getCalificacionPromedioByEmail(email);
+        //u.setCalificacion(calificacionPromedio);
         return u;
     }
 

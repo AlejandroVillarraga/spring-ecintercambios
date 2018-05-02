@@ -15,6 +15,8 @@ public interface PrestamoService {
 
     List<Prestamo> getMisObjetosPrestados(String email);
 
+    Prestamo aprobarPrestamo(long id);
+
 
 
 }

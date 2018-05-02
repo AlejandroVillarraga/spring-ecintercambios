@@ -56,4 +56,12 @@ public class PrestamoServiceImpl implements PrestamoService {
     public List<Prestamo> getMisObjetosPrestados(String email) {
         return presrepo.getMisObjetosPrestados(email);
     }
+
+    @Override
+    public Prestamo aprobarPrestamo(long id) {
+        Prestamo pres = presrepo.findOne(id);
+        pres.setAceptado(true);
+        presrepo.save(pres);
+        return pres;
+    }
 }

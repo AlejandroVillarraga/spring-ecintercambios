@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios_main.iml" group="spring-ecintercambios" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios_main.iml" group="spring-ecintercambios" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios_test.iml" group="spring-ecintercambios" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-ecintercambios_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-ecintercambios_test.iml" group="spring-ecintercambios" />
     </modules>
   </component>
