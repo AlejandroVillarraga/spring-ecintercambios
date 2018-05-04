@@ -64,4 +64,9 @@ public class PrestamoServiceImpl implements PrestamoService {
         presrepo.save(pres);
         return pres;
     }
+
+    @Override
+    public List<Prestamo> getAllSolicitudes() {
+        return presrepo.getAllPrestamos();
+    }
 }

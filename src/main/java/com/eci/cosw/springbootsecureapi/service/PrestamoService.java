@@ -17,6 +17,8 @@ public interface PrestamoService {
 
     Prestamo aprobarPrestamo(long id);
 
+    List<Prestamo> getAllSolicitudes();
+
 
 
 }

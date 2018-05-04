@@ -15,6 +15,12 @@ public interface PrestamosRepository extends JpaRepository<Prestamo, Long> {
     @Query("SELECT p from Prestamo p WHERE p.prestador.email=?1")
     public List<Prestamo> getMisObjetosPrestados(String email);
 
+    @Query("SELECT p from Prestamo p ORDER BY p.aceptado ASC")
+    public List<Prestamo> getAllPrestamos();
+
+
+
+
 
 
 }

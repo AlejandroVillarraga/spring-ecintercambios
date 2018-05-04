@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n</button>\n\n  <a  class=\"navbar-brand\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">\n    <img src=\"/assets/brand/logo.svg\" width=\"25\" height=\"25\">\n    ECI OBJECTS\n  </a>\n    &nbsp;\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">Categorias</a>\n      </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/ofrecerObjeto\" routerLink=\"/ofrecerObjeto\"  class=\"nav-link\" class=\"styleA\" >Ofrecer Objeto</a>\n        </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/solicitud\" routerLink=\"/solicitud\"  class=\"nav-link\" class=\"styleA\" >Solicitudes</a>\n        </li>\n        &nbsp;\n    </ul>\n    <ul class=\"navbar-nav lr-auto\">\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signin\" routerLink=\"/signin\"  class=\"styleA\" >Ingresa</a>\n      </li>\n        &nbsp;\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signup\" routerLink=\"/signup\"  class=\"styleA\" >Registrate</a>\n      </li>\n        &nbsp;\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/objetos\" routerLink=\"/objetos\"  class=\"nav-link\" (click)=\"signOut()\" class=\"styleA\" >Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<nav class=\"navbar navbar-toggleable-md  fixed-top \">\n<button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n</button>\n\n  <a  class=\"navbar-brand\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">\n    ECI OBJECTS\n  </a>\n    &nbsp;\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a class=\"styleA\" routerLinkActive=\"/objetos\" routerLink=\"/objetos\">Categorias</a>\n      </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/ofrecerObjeto\" routerLink=\"/ofrecerObjeto\"  class=\"nav-link\" class=\"styleA\" >Ofrecer Objeto</a>\n        </li>\n        &nbsp;\n        <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n            <a routerLinkActive=\"/solicitud\" routerLink=\"/solicitud\"  class=\"nav-link\" class=\"styleA\" >Solicitudes</a>\n        </li>\n        &nbsp;\n      <li *ngIf=\"isAdministrator() && isLoggedIn() \" class=\"nav-item\">\n        <a routerLinkActive=\"/administrador\" routerLink=\"/administrador\"  class=\"nav-link\" class=\"styleA\" >Administrador</a>\n      </li>\n      &nbsp;\n    </ul>\n    <ul class=\"navbar-nav lr-auto\">\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signin\" routerLink=\"/signin\"  class=\"styleA\" >Ingresa</a>\n      </li>\n        &nbsp;\n      <li class=\"nav-item\">\n        <a *ngIf=\"!isLoggedIn()\" routerLinkActive=\"/signup\" routerLink=\"/signup\"  class=\"styleA\" >Registrate</a>\n      </li>\n        &nbsp;\n      <li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n        <a routerLinkActive=\"/objetos\" routerLink=\"/objetos\"  class=\"nav-link\" (click)=\"signOut()\" class=\"styleA\" >Salir</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -68,10 +68,13 @@ var AppComponent = (function () {
             this.router.navigate(['/objetos']);
         }
         this.router.navigate(['/objetos']);
-        this.signOut();
+        //this.signOut();
     }
     AppComponent.prototype.isLoggedIn = function () {
         return this.authService.isLoggedIn();
+    };
+    AppComponent.prototype.isAdministrator = function () {
+        return this.authService.isAdministrator();
     };
     AppComponent.prototype.signOut = function () {
         sessionStorage.setItem("currentUser", "-1");
@@ -104,31 +107,33 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__ = __webpack_require__("../../../../../src/app/pages/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__ = __webpack_require__("../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__ = __webpack_require__("../../../../../src/app/pages/solicitud-page/solicitud-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__ = __webpack_require__("../../../../../src/app/pages/objetos-page/objetos-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__ = __webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/pages/page-not-found/page-not-found.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_prestamo_service__ = __webpack_require__("../../../../../src/app/services/prestamo.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__common_config_initial_config__ = __webpack_require__("../../../../../src/app/common/config/initial-config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_app_data_service__ = __webpack_require__("../../../../../src/app/common/app-data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_sign_in_sign_in_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_sign_up_sign_up_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-up/sign-up-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_administrador_page_administrador_page_component__ = __webpack_require__("../../../../../src/app/pages/administrador-page/administrador-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ofrecer_page_ofrecer_page_component__ = __webpack_require__("../../../../../src/app/pages/ofrecer-page/ofrecer-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_solicitud_page_solicitud_page_component__ = __webpack_require__("../../../../../src/app/pages/solicitud-page/solicitud-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_objetos_page_objetos_page_component__ = __webpack_require__("../../../../../src/app/pages/objetos-page/objetos-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_prestadores_page_prestadores_page_component__ = __webpack_require__("../../../../../src/app/pages/prestadores-page/prestadores-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/pages/page-not-found/page-not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_prestamo_service__ = __webpack_require__("../../../../../src/app/services/prestamo.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__common_config_app_configuration_service__ = __webpack_require__("../../../../../src/app/common/config/app-configuration.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_config_initial_config__ = __webpack_require__("../../../../../src/app/common/config/initial-config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_api_service__ = __webpack_require__("../../../../../src/app/common/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_auth_service__ = __webpack_require__("../../../../../src/app/common/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__common_app_data_service__ = __webpack_require__("../../../../../src/app/common/app-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_sign_in_sign_in_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-in/sign-in-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_sign_up_sign_up_page_component__ = __webpack_require__("../../../../../src/app/pages/sign-up/sign-up-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_users_service__ = __webpack_require__("../../../../../src/app/services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_horariosDisponibles_service__ = __webpack_require__("../../../../../src/app/services/horariosDisponibles.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_objeto_service__ = __webpack_require__("../../../../../src/app/services/objeto.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_objetoOfrecido_service__ = __webpack_require__("../../../../../src/app/services/objetoOfrecido.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -156,14 +161,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var ROUTES = [
-    { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_19__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
+    { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_20__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */] },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */] },
-    { path: 'objetos', component: __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
-    { path: 'prestadores', component: __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_20__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
-    { path: 'ofrecerObjeto', component: __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */] },
-    { path: 'solicitud', component: __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */] },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
+    { path: 'objetos', component: __WEBPACK_IMPORTED_MODULE_9__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */] },
+    { path: 'prestadores', component: __WEBPACK_IMPORTED_MODULE_10__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */] },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_21__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */] },
+    { path: 'ofrecerObjeto', component: __WEBPACK_IMPORTED_MODULE_7__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */] },
+    { path: 'solicitud', component: __WEBPACK_IMPORTED_MODULE_8__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */] },
+    { path: 'administrador', component: __WEBPACK_IMPORTED_MODULE_6__pages_administrador_page_administrador_page_component__["a" /* AdministradorPageComponent */] },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_11__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -175,37 +181,38 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_5__pages_home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */]
+            __WEBPACK_IMPORTED_MODULE_11__pages_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_sign_in_sign_in_page_component__["a" /* SignInPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_objetos_page_objetos_page_component__["a" /* ObjetosPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_prestadores_page_prestadores_page_component__["a" /* PrestadoresPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__pages_sign_up_sign_up_page_component__["a" /* SignUpPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_solicitud_page_solicitud_page_component__["a" /* SolicitudPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_ofrecer_page_ofrecer_page_component__["a" /* OfrecerPageComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_administrador_page_administrador_page_component__["a" /* AdministradorPageComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_15__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_16__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_12__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_13__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(ROUTES),
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* ReactiveFormsModule */]
         ],
         providers: [
             {
-                provide: __WEBPACK_IMPORTED_MODULE_14__common_config_initial_config__["a" /* INITIAL_CONFIG */],
+                provide: __WEBPACK_IMPORTED_MODULE_15__common_config_initial_config__["a" /* INITIAL_CONFIG */],
                 useValue: {
                     apiURL: 'https://ecintercambios.herokuapp.com'
                 }
             },
-            __WEBPACK_IMPORTED_MODULE_13__common_config_app_configuration_service__["a" /* AppConfiguration */],
-            __WEBPACK_IMPORTED_MODULE_16__common_api_service__["a" /* APIService */],
-            __WEBPACK_IMPORTED_MODULE_17__common_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_18__common_app_data_service__["a" /* AppDataService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_users_service__["a" /* UsersService */],
-            __WEBPACK_IMPORTED_MODULE_23__services_objeto_service__["a" /* ObjetoService */],
-            __WEBPACK_IMPORTED_MODULE_24__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */],
-            __WEBPACK_IMPORTED_MODULE_22__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */],
-            __WEBPACK_IMPORTED_MODULE_11__services_prestamo_service__["a" /* PrestamoService */]
+            __WEBPACK_IMPORTED_MODULE_14__common_config_app_configuration_service__["a" /* AppConfiguration */],
+            __WEBPACK_IMPORTED_MODULE_17__common_api_service__["a" /* APIService */],
+            __WEBPACK_IMPORTED_MODULE_18__common_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_19__common_app_data_service__["a" /* AppDataService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_24__services_objeto_service__["a" /* ObjetoService */],
+            __WEBPACK_IMPORTED_MODULE_25__services_objetoOfrecido_service__["a" /* ObjetoOfrecidoService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_horariosDisponibles_service__["a" /* HorariosDisponiblesService */],
+            __WEBPACK_IMPORTED_MODULE_12__services_prestamo_service__["a" /* PrestamoService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
@@ -388,6 +395,10 @@ var AuthService = (function () {
     AuthService.prototype.isLoggedIn = function () {
         return this.appData.accessToken != null && this.appData.accessToken !== undefined;
     };
+    AuthService.prototype.isAdministrator = function () {
+        var data = sessionStorage.getItem("currentUser");
+        return data == "administrador";
+    };
     AuthService.prototype.signOut = function () {
         this.appData.removeAccessToken();
         this.router.navigate(['objetos']);
@@ -556,6 +567,87 @@ var User = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/administrador-page/administrador-page.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container{\n    position: left;\n    width: 100%;\n\n    -ms-flex-line-pack: center;\n\n        align-content: center;\n  }\n\n.row{\n    padding: 20px 20px 20px 20px;\n}\n\n\n.card{\n    border-style: solid;\n    border-width: 2px;\n    border-color: black;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\n}\n\n.styleA{\n    background-color: #0e6ebe;\n    color: white;\n    padding: 8px 30px;\n    text-aling: center;\n    text-decoration: none;\n    display: inline-block; /* Safari */\n    transition-duration: 0.9s;\n        cursor: pointer;\n\n}\n\n.styleA:hover {\n    background-color: white;\n    color: #0e6ebe;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/administrador-page/administrador-page.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <br>\n    <br>\n    <br>\n    <br>\n    <div class=\"row\">\n        <div *ngFor=\"let misSol of solicitudes\" class=\"col-xs-12 col-xs-3\">\n            <div class=\"card\"  style=\"width:1350px\">\n                <div class=\"row \">\n                    <div class=\"col-sm-4\">\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Código del prestamo: </font>{{misSol.id}}</font>\n                        <br>\n                        <font size=\"4\">{{misSol.objetoOfrecido.objeto_ofrecido.name}}</font>\n                        <br>\n                        <img class=\"category\" src=\"{{misSol.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                        <hr>\n                        <font size=\"4\">{{misSol.objetoOfrecido.descripcion}}</font>\n                        <hr>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misSol.objetoOfrecido.precio}} COP</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misSol.horariosDisponibles.dia}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misSol.horariosDisponibles.hora_inicio}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misSol.horariosDisponibles.hora_fin}}</font>\n                        <div *ngIf=\"misSol.aceptado\">\n                            <font size=\"5\" color=\"blue\">Solicitud Terminada</font>\n\n                        </div>\n                        <div *ngIf=\"!misSol.aceptado\">\n                            <font size=\"5\" color=\"red\">Solicitud Pendiente</font>\n                            <br>\n                            <a class=\"styleA\" (click)=\"aprobarPrestamo(misSol.id)\" routerLinkActive=\"/home\" routerLink=\"/home\">Aprobar</a>\n                        </div>\n\n                    </div>\n                    <div  class=\"col-sm-4\">\n                        <font size=\"5\" color=\"orange\">Prestador</font>\n                        <br>\n                        <font size=\"3\" color=\"grey\">Ahora que tu solicitud fue aceptada</font>\n                        <font size=\"3\" color=\"grey\"> puedes contactarte con tu compañero</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/generos/{{misSol.prestador.genero}}.svg\" width=\"100px\" height=\"100px\">\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misSol.prestador.name}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Email: </font> {{misSol.prestador.email}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Cel: </font> {{misSol.prestador.celular}}</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/estrellas/{{misSol.prestador.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                        <br>\n                        <font size=\"1\">Número de opiniones: {{misSol.prestador.numeroDeOpiniones}}</font>\n\n                    </div>\n\n                    <div class=\"col-sm-4\">\n\n                        <font size=\"5\" color=\"orange\">Solicitante</font>\n                        <br>\n                        <font size=\"3\" color=\"grey\">Ahora que tu solicitud fue aceptada</font>\n                        <font size=\"3\" color=\"grey\"> puedes contactarte con tu compañero</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/generos/{{misSol.solicitante.genero}}.svg\" width=\"100px\" height=\"100px\">\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misSol.solicitante.name}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Email: </font> {{misSol.solicitante.email}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Cel: </font> {{misSol.solicitante.celular}}</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/estrellas/{{misSol.solicitante.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                        <br>\n                        <font size=\"1\">Número de opiniones: {{misSol.solicitante.numeroDeOpiniones}}</font>\n\n                    </div>\n                </div>\n\n\n\n            </div>\n\n\n\n\n            <br>\n        </div>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/administrador-page/administrador-page.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdministradorPageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_prestamo_service__ = __webpack_require__("../../../../../src/app/services/prestamo.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AdministradorPageComponent = (function () {
+    function AdministradorPageComponent(prestamoService, router) {
+        this.prestamoService = prestamoService;
+        this.router = router;
+        this.solicitudes = [];
+    }
+    AdministradorPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        window.scroll(0, 0);
+        this.prestamoService.getAllPrestamos().subscribe(function (prestamoResponse) {
+            _this.solicitudes = prestamoResponse;
+        });
+    };
+    AdministradorPageComponent.prototype.aprobarPrestamo = function (id) {
+        var _this = this;
+        this.prestamoService.aprobarPrestamo(id).subscribe(function (prestamoResponse) {
+            _this.prestamoTemp = prestamoResponse;
+            _this.router.navigate(['/solicitud']);
+        });
+    };
+    return AdministradorPageComponent;
+}());
+AdministradorPageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-administrador-page',
+        template: __webpack_require__("../../../../../src/app/pages/administrador-page/administrador-page.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/administrador-page/administrador-page.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_prestamo_service__["a" /* PrestamoService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_prestamo_service__["a" /* PrestamoService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], AdministradorPageComponent);
+
+var _a, _b;
+//# sourceMappingURL=administrador-page.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/home-page/home-page.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -639,7 +731,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/objetos-page/objetos-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <br>\n    <br>\n    <br>\n    <div class=\"row\">\n        <img src=\"/assets/brand/logo.svg\" width=\"60\" height=\"60\">\n        <font size=\"12\">ECI OBJECTS</font>\n\n    </div>\n    <hr>\n    <div class=\"row\">\n        <font size=\"5\">Esta es un plataforma creada para que compartas tus objetos de trabajo con tus compañeros de la Escuela ;)</font>\n    </div>\n    <hr>\n    <font size=\"5\" color=\"grey\">Categorías:</font>\n    <p><font size=\"4\" color=\"grey\">Selecciona el objeto que necesitas que algun colega te preste...</font>\n    </p>\n<div class=\"row\">\n\n    <div *ngFor=\"let cl of objetoList\" class=\"col-xs-6 col-xs-3\">\n        <br>\n\n        <a (click)=\"saveCategory(cl.name)\" routerLinkActive=\"/prestadores\" routerLink=\"/prestadores\"  class=\"btn btn1\" role=\"button\" aria-pressed=\"true\">\n            {{cl.name}}\n            <div class=\"card text-center\">\n                <img class=\"category\" src=\"{{cl.image}}\" width=\"299px\" height=\"299px\">\n                <div class=\"card-img-overlay\">\n                    <br>\n                    <br>\n                </div>\n            </div>\n        </a>\n        <br>\n    </div>\n</div>\n</div>"
+module.exports = "<div class=\"container\">\n    <br>\n    <br>\n    <br>\n    <div class=\"row\">\n        <img src=\"/assets/brand/brand.jpeg\" width=\"600\" height=\"380\">\n    </div>\n    <hr>\n    <div class=\"row\">\n        <font size=\"5\">Esta es un plataforma creada para que compartas tus objetos de trabajo con tus compañeros de la Escuela ;)</font>\n    </div>\n    <hr>\n    <font size=\"5\" color=\"grey\">Categorías:</font>\n    <p><font size=\"4\" color=\"grey\">Selecciona el objeto que necesitas que algun colega te preste...</font>\n    </p>\n<div class=\"row\">\n\n    <div *ngFor=\"let cl of objetoList\" class=\"col-xs-6 col-xs-3\">\n        <br>\n\n        <a (click)=\"saveCategory(cl.name)\" routerLinkActive=\"/prestadores\" routerLink=\"/prestadores\"  class=\"btn btn1\" role=\"button\" aria-pressed=\"true\">\n            {{cl.name}}\n            <div class=\"card text-center\">\n                <img class=\"category\" src=\"{{cl.image}}\" width=\"299px\" height=\"299px\">\n                <div class=\"card-img-overlay\">\n                    <br>\n                    <br>\n                </div>\n            </div>\n        </a>\n        <br>\n    </div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -1230,7 +1322,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/solicitud-page/solicitud-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<br>\n<h1>Mis Solicitudes</h1>\n<font size=\"3\" color=\"grey\">Más abajo encontraras las solicitudes que han realizado para tus objetos.</font>\n<br>\n<font size=\"5\">A continuación, lo que has solicitado prestado:</font>\n\n<div class=\"row\">\n\n    <div *ngFor=\"let misSol of misSolicitudes\" class=\"col-xs-6 col-xs-3\">\n          <div class=\"card\"  style=\"width:900px\">\n            <div class=\"row \">\n                <div class=\"col-sm-5\">\n\n                    <font size=\"4\">{{misSol.objetoOfrecido.objeto_ofrecido.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"{{misSol.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                    <hr>\n                    <font size=\"4\">{{misSol.objetoOfrecido.descripcion}}</font>\n                    <hr>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misSol.objetoOfrecido.precio}} COP</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misSol.horariosDisponibles.dia}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misSol.horariosDisponibles.hora_inicio}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misSol.horariosDisponibles.hora_fin}}</font>\n\n\n                </div>\n                <div  class=\"col-sm-7\">\n                    <div *ngIf=\"misSol.aceptado\">\n                        <font size=\"5\" color=\"red\">Solicitud Aprobada</font>\n                        <br>\n                        <font size=\"3\" color=\"grey\">Ahora que tu solicitud fue aceptada</font>\n                        <font size=\"3\" color=\"grey\"> puedes contactarte con tu compañero</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/generos/{{misSol.prestador.genero}}.svg\" width=\"100px\" height=\"100px\">\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misSol.prestador.name}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Email: </font> {{misSol.prestador.email}}</font>\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Cel: </font> {{misSol.prestador.celular}}</font>\n\n                    </div>\n                    <div *ngIf=\"!misSol.aceptado\">\n                        <font size=\"4\" color=\"red\">Esta solicitud no ha sido aceptada!!!!</font>\n                        <br>\n                        <font size=\"3\" color=\"red\">Espera a que tu compañero apruebe esta solicitud</font>\n                    </div>\n                </div>\n            </div>\n\n\n        </div>\n\n\n\n\n        <br>\n    </div>\n\n</div>\n\n\n<img  src=\"/assets/brand/imagenU.jpg\" width=\"850px\" height=\"281px\">\n<h1>Mis Solicitudes a aprovar ...</h1>\n<br>\n<font size=\"5\">A continuación, lo que ten han pedido prestado:</font>\n\n<div class=\"row\">\n\n    <div *ngFor=\"let misPres of misObjetosPrestados\" class=\"col-xs-6 col-xs-3\">\n        <div class=\"card\"  style=\"width:900px\">\n            <div class=\"row \">\n                <div class=\"col-sm-5\">\n\n                    <font size=\"4\">{{misPres.objetoOfrecido.objeto_ofrecido.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"{{misPres.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                    <hr>\n                    <font size=\"4\">{{misPres.objetoOfrecido.descripcion}}</font>\n                    <hr>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misPres.objetoOfrecido.precio}} COP</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misPres.horariosDisponibles.dia}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misPres.horariosDisponibles.hora_inicio}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misPres.horariosDisponibles.hora_fin}}</font>\n\n\n                </div>\n                <div  class=\"col-sm-7\">\n                    <font size=\"3\" color=\"grey\">Solicitud</font>\n                    <br>\n                    <img class=\"category\" src=\"/assets/generos/{{misPres.solicitante.genero}}.svg\" width=\"100px\" height=\"100px\">\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misPres.solicitante.name}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Email: </font> {{misPres.solicitante.email}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Cel: </font> {{misPres.solicitante.celular}}</font>\n\n                    <div *ngIf=\"misPres.aceptado\">\n                        <font size=\"5\" color=\"red\">Solicitud Aprobada</font>\n                    </div>\n                    <div *ngIf=\"!misPres.aceptado\">\n                        <a class=\"styleA\" (click)=\"aprobarPrestamo(misPres.id)\" routerLinkActive=\"/home\" routerLink=\"/home\">Aprobar</a>\n                    </div>\n\n                </div>\n            </div>\n\n\n        </div>\n\n\n\n\n        <br>\n    </div>\n\n</div>"
+module.exports = "<br>\n<br>\n<h1>Mis Solicitudes</h1>\n<font size=\"3\" color=\"grey\">Más abajo encontraras las solicitudes que han realizado para tus objetos.</font>\n<br>\n<font size=\"5\">A continuación, lo que has solicitado prestado:</font>\n\n<div class=\"row\">\n\n    <div *ngFor=\"let misSol of misSolicitudes\" class=\"col-xs-6 col-xs-3\">\n          <div class=\"card\"  style=\"width:900px\">\n            <div class=\"row \">\n                <div class=\"col-sm-5\">\n\n                    <font size=\"4\">{{misSol.objetoOfrecido.objeto_ofrecido.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"{{misSol.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                    <hr>\n                    <font size=\"4\">{{misSol.objetoOfrecido.descripcion}}</font>\n                    <hr>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misSol.objetoOfrecido.precio}} COP</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misSol.horariosDisponibles.dia}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misSol.horariosDisponibles.hora_inicio}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misSol.horariosDisponibles.hora_fin}}</font>\n\n\n                </div>\n                <div  class=\"col-sm-7\">\n                    <div *ngIf=\"misSol.aceptado\">\n                        <font size=\"5\" color=\"blue\">Solicitud Aprobada</font>\n                        <br>\n                        <font size=\"3\" color=\"grey\">Ahora que tu solicitud fue aceptada</font>\n                        <font size=\"3\" color=\"grey\"> puedes contactarte con tu compañero</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/generos/{{misSol.prestador.genero}}.svg\" width=\"100px\" height=\"100px\">\n                        <br>\n                        <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misSol.prestador.name}}</font>\n                        <br>\n                        <img class=\"category\" src=\"/assets/estrellas/{{misSol.prestador.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                        <br>\n                        <font size=\"1\">Número de opiniones: {{misSol.prestador.numeroDeOpiniones}}</font>\n\n                    </div>\n                    <div *ngIf=\"!misSol.aceptado\">\n                        <font size=\"5\" color=\"red\">Espera a que esta solicitud sea aprobada</font>\n                    </div>\n                </div>\n            </div>\n\n\n        </div>\n\n\n\n\n        <br>\n    </div>\n\n</div>\n\n\n<img  src=\"/assets/brand/imagenU.jpg\" width=\"850px\" height=\"281px\">\n<h1>Mis Solicitudes a aprovar ...</h1>\n<br>\n<font size=\"5\">A continuación, lo que ten han pedido prestado:</font>\n\n<div class=\"row\">\n\n    <div *ngFor=\"let misPres of misObjetosPrestados\" class=\"col-xs-6 col-xs-3\">\n        <div class=\"card\"  style=\"width:900px\">\n            <div class=\"row \">\n                <div class=\"col-sm-5\">\n\n                    <font size=\"4\">{{misPres.objetoOfrecido.objeto_ofrecido.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"{{misPres.objetoOfrecido.objeto_ofrecido.image}}\" width=\"100px\" height=\"100px\">\n                    <hr>\n                    <font size=\"4\">{{misPres.objetoOfrecido.descripcion}}</font>\n                    <hr>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Precio: </font>${{misPres.objetoOfrecido.precio}} COP</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Dia: </font>{{misPres.horariosDisponibles.dia}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Desde: </font> {{misPres.horariosDisponibles.hora_inicio}}</font>\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Hasta: </font> {{misPres.horariosDisponibles.hora_fin}}</font>\n\n\n                </div>\n                <div  class=\"col-sm-7\">\n                    <font size=\"3\" color=\"grey\">Solicitud</font>\n                    <br>\n                    <img class=\"category\" src=\"/assets/generos/{{misPres.solicitante.genero}}.svg\" width=\"100px\" height=\"100px\">\n                    <br>\n                    <font size=\"4\"><font size=\"3\" color=\"grey\">Nombre: </font> {{misPres.solicitante.name}}</font>\n                    <br>\n                    <img class=\"category\" src=\"/assets/estrellas/{{misPres.solicitante.calificacion}}.png\" width=\"200px\" height=\"40px\">\n                    <br>\n                    <font size=\"1\">Número de opiniones: {{misPres.solicitante.numeroDeOpiniones}}</font>\n\n                    <div *ngIf=\"misPres.aceptado\">\n                        <font size=\"5\" color=\"blue\">Solicitud Aprobada</font>\n                    </div>\n                    <div *ngIf=\"!misPres.aceptado\">\n                        <font size=\"5\" color=\"red\">Espera a que esta solicitud sea aprobada</font>\n                    </div>\n\n                </div>\n            </div>\n\n\n        </div>\n\n\n\n\n        <br>\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -1550,6 +1642,9 @@ var PrestamoService = (function (_super) {
     PrestamoService.prototype.getMisObjetosPrestados = function () {
         var data = sessionStorage.getItem("currentUser") + "@mail.escuelaing.edu.co.";
         return this.get(this.resourceUrl + "getMisObjetosPrestados/" + data);
+    };
+    PrestamoService.prototype.getAllPrestamos = function () {
+        return this.get(this.resourceUrl + "getAll");
     };
     PrestamoService.prototype.aprobarPrestamo = function (id) {
         return this.post(this.resourceUrl + "aprobarPrestamo/" + id, id);
