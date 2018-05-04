@@ -24,6 +24,9 @@ public class UserServicePersistence implements UserService {
     @Autowired
     ObjetoOfrecidoRepository objetoOfrecidoRepository;
 
+    @Autowired
+    CalificacionRepository calrepo;
+
 
     @Override
     public List<User> getUsers() {
@@ -65,5 +68,11 @@ public class UserServicePersistence implements UserService {
         cu.setObjetoOfrecidoList(listob);
         userRepository.save(cu);
         return objetoOfrecidoRepository.getLastObjetoOfrecido().get(0) ;
+    }
+
+    @Override
+    public Calificacion addCalificacion(Calificacion calificacion) {
+        calirepo.save(calificacion);
+        return calificacion;
     }
 }

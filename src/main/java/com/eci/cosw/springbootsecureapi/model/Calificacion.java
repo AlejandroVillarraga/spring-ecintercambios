@@ -29,7 +29,7 @@ public class Calificacion {
         this.calificacion = calificacion;
     }
 
-    @ManyToOne(cascade=ALL)
+    @ManyToOne
     @JoinColumn(name="user_email", referencedColumnName="email", nullable=true)
     public User getUser() {
         return user;

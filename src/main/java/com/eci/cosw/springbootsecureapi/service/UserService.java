@@ -1,5 +1,6 @@
 package com.eci.cosw.springbootsecureapi.service;
 
+import com.eci.cosw.springbootsecureapi.model.Calificacion;
 import com.eci.cosw.springbootsecureapi.model.ObjetoOfrecido;
 import com.eci.cosw.springbootsecureapi.model.User;
 
@@ -22,4 +23,6 @@ public interface UserService
     User findUserByEmailAndPassword( String email, String password );
 
     ObjetoOfrecido addObjetoOfrecido(ObjetoOfrecido objetoOfrecido, String email);
+
+    Calificacion addCalificacion(Calificacion calificacion);
 }
