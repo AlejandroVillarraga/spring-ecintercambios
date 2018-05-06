@@ -38,15 +38,12 @@ public class UserServicePersistence implements UserService {
     @Override
     public User getUser(String email) {
         User u = userRepository.findOne(email);
-        //int calificacionPromedio = calirepo.getCalificacionPromedioByEmail(email);
-        //u.setCalificacion(calificacionPromedio);
         return u;
     }
 
     @Override
     public User createUser(User user) {
         userRepository.save(user);
-        System.out.println(user.getName());
         return user;
     }
 
