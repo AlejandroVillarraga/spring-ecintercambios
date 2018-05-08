@@ -1291,6 +1291,7 @@ var SignUpPageComponent = (function () {
     }
     SignUpPageComponent.prototype.signUp = function () {
         var _this = this;
+        this.error = "";
         this.loader = "Cargando ...";
         this.usersService.getUser(this.signUpForm.get('email').value + "@mail.escuelaing.edu.co.").subscribe(function (loginResponse) {
             _this.error = "Este Email ya esta registrado en el sistema.";
@@ -1303,7 +1304,8 @@ var SignUpPageComponent = (function () {
                 }, function (error) {
                 });
             }, function (error) {
-                _this.error = "Error";
+                _this.error = "Error, verifica que hayas llenado todos los campos obligatorios.";
+                _this.loader = "Registrate";
             });
         });
     };
